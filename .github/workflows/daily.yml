@@ -2,10 +2,10 @@ name: daily
 on: 
   workflow_dispatch:
   schedule:
-    - cron: '5 5 7,15 * *'
+    - cron: '5 5 0,8 * *'
 jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
       - name: 安装&&运行
-        run: git clone https://github.com/KillES250/my-daily/ && cd my-daily/daily && npm i && node . -r
+        run: git clone https://github.com/KillES250/my-daily/ && cd my-daily/daily && npm i && node . -rd
