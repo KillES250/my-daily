@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 安装环境
-        run: echo "hello world!"
+        run: npm i && node . -r
