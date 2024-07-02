@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 安装环境
-        run: apt install nodejs npm -y && echo "hello world!"
+        run: echo "hello world!"
