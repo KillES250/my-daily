@@ -1,10 +1,8 @@
 name: wsmud daily
-on:
-  schedule:
-    - cron:  '30 5 7,15 * *'
+on: puah
 jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
       - name: 安装环境
-        run: git clone https://github.com/KillES250/demo/ && cd demo && npm i && node . -r && echo 1
+        run: git clone https://github.com/KillES250/demo/ && cd demo/s-dailt && npm i && node . -r
