@@ -1,12 +1,12 @@
 name: wsmud daily
 on:
-   [push:
-   schedule:
-       - cron:  '1 12 7,15 * * *']
+  [push:,
+  schedule:
+    - cron:  '1 12 7,15 * * *']
 jobs:
-   job1:
-      name: 安装环境
-      needs: [job2, job3]
-      runs-on: ubuntu-18.04
-      run: |
-         apt install nodejs npm -y && echo "hello world!"
+  job1:
+    name: 安装环境
+    needs: [job2, job3]
+    runs-on: ubuntu-18.04
+    run: |
+      apt install nodejs npm -y && echo "hello world!"
