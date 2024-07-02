@@ -1,0 +1,129 @@
+pushplus: ''
+roles:
+  - name: 洛九轩
+    server: ws://120.77.213.218:25632
+    token: >-
+      598eb40096e54e6c8af3063344bdabd3
+      5lMcMcB3oVlqXNRCVHyA8hs+I7xe9BdBrC75efjeaZkPdA1Nk3MpvjmLE1jvT/qnFx0jG3iQpFVR184W5UVCjg==
+      xs7v1fd8df5
+    dungeon: cr chanzong/shanmen 1
+    sectDungeon: false
+    loginCommand: >-
+      eq q7ll7665b27;eq p6n45dc173f;eq df2f3227418;eq mwsr7cfcc51;eq
+      2uv9334c9ea;eq 1uu4330c16f;eq cfwr234c141;eq v7c530dc7f4;eq wgji7b43dae;eq
+      rerl760765c;eq vmov5c8fbcb;enable throwing jinshezhui;enable unarmed
+      liumaishenjian;enable force jiuyinshengong;enable dodge juemengun;enable
+      sword taijijian2;enable blade xuedao;enable club zhongpingqiang;enable
+      staff shedaoqigong;enable whip qiufengfuchen;enable parry yihuajiemu;
+    logoutCommand: ''
+  - name: 麟枫
+    server: ws://120.77.213.218:25632
+    token: >-
+      e7cb84781f034c3189c2dde67152451d
+      JxGcPuglHZMr11ajNTU9g0tsjsxuYj7f3TVOl1m7DJBrVivN1sC3mINAZXrD7FcnN8XFhI1Qu7chGPxE4sDeJw==
+      22be897d2cd
+    dungeon: cr xuedao/shankou 0
+    sectDungeon: false
+    loginCommand: >-
+      enable throwing jinshezhui;enable unarmed jiuyinbaiguzhao2;enable force
+      mingyugong;enable dodge tagexing;enable sword yitianjianfa2;enable blade
+      hujiadaofa;enable club baguagun;enable staff shedaoqigong;enable whip
+      yunlongbian;enable parry hengshanwushenjian;eq 0i079618acd;eq
+      kqx79819660;eq 72diaed8dc9;eq vokq94cd048;eq ik8z94b7c84;eq d38fa8914af;eq
+      7r4k8ea2a67;eq b2xfaa65259;eq lwo099bfa98;eq 2dvkb318869;eq brxva934419;
+    logoutCommand: pty 日常结束
+  - name: 念秋辞
+    server: ws://120.77.213.218:25632
+    token: >-
+      0fc57216ae37436ea61359b1ab2502bd
+      WbhqkslSa9ZBPuxbjb9fZOG7zSYJ5Q43OQQjGJSfKI63Vr2XQVsAwT2bpwU3eLrPR0Hin3EG8YEpKnyyWKetZg==
+      19n17315e05
+    dungeon: cr chanzong/shanmen 1
+    sectDungeon: false
+    loginCommand: ''
+    logoutCommand: ''
+  - name: 檀香辞
+    server: ws://120.77.213.218:25632
+    token: >-
+      0fc57216ae37436ea61359b1ab2502bd
+      WbhqkslSa9ZBPuxbjb9fZOG7zSYJ5Q43OQQjGJSfKI63Vr2XQVsAwT2bpwU3eLrPR0Hin3EG8YEpKnyyWKetZg==
+      1kws961795d
+    dungeon: cr huashan/lunjian/leitaixia 0
+    sectDungeon: false
+    loginCommand: ''
+    logoutCommand: ''
+  - name: 吕守瀛
+    server: ws://120.77.213.218:25632
+    token: >-
+      0fc57216ae37436ea61359b1ab2502bd
+      WbhqkslSa9ZBPuxbjb9fZOG7zSYJ5Q43OQQjGJSfKI63Vr2XQVsAwT2bpwU3eLrPR0Hin3EG8YEpKnyyWKetZg==
+      7w928e735da
+    dungeon: cr cihang/shanmen 0
+    sectDungeon: false
+    loginCommand: ''
+    logoutCommand: ''
+  - name: 思秋蝉
+    server: ws://120.77.213.218:25632
+    token: >-
+      0fc57216ae37436ea61359b1ab2502bd
+      WbhqkslSa9ZBPuxbjb9fZOG7zSYJ5Q43OQQjGJSfKI63Vr2XQVsAwT2bpwU3eLrPR0Hin3EG8YEpKnyyWKetZg==
+      afld848ffef
+    dungeon: cr gumu/gumukou 0
+    sectDungeon: false
+    loginCommand: >-
+    logoutCommand: ''
+  - name: 秋翎
+    server: ws://120.77.213.218:25632
+    token: >-
+      2fdfa7f2fdb14fcf9f70075b434177e4
+      UfBcRnRxWHC4fh9MLOMzEslf55HBb+MHjimrUruJERoylO84TYDJoSORkkO3791RtHTr+nsf38b3/mO0ghKZSQ==
+      sflb64b20c0
+    dungeon: cr zsd/damen 1
+    sectDungeon: true
+    loginCommand: >-
+      enable throwing sflb64b20c0;enable unarmed jiuyinbaiguzhao2;enable force
+      cihangjiandian;enable dodge lingxibu;enable sword sflb64b20c0;enable blade
+      xuedao;enable club juemengun;enable staff shedaoqigong;enable whip
+      yunlongbian;enable parry yihuajiemu;eq qju069b574e;eq n8qnb651ef0;eq
+      npet9dab7d0;eq undefined;eq wzn76f670e0;eq zz4k8c6af69;eq votj6674440;eq
+      bufz9dab7ca;eq zb92b651ef4;eq itln726b023;eq b7pf6daad4e;
+    logoutCommand: >-
+      enable throwing jinshezhui;enable unarmed anranxiaohun;enable force
+      shenzhaojing;enable dodge lingxibu;enable sword quanzhenjianfa;enable
+      blade xuedao;enable club zhongpingqiang;enable staff shedaoqigong;enable
+      whip yunlongbian;enable parry yihuajiemu;eq 019fa647748;eq n8qnb651ef0;eq
+      6te27c29b59;eq undefined;eq wwn9927b3da;eq l0ox707705a;eq o5gq6a41e1d;eq
+      8hw17937258;eq zb92b651ef4;eq itln726b023;eq 685c7d506af;dazuo
+  - name: 超大份可乐
+    server: ws://120.77.213.218:25634
+    token: >-
+      ef06a2c7f4554c02b85889e75248c054
+      YaqwL2MUBL+kcUFAZ1xu/AKbviomrgYanWYa/Z2bukkkoWXmbaleyn9EC13C5FjG43o1mgfHoeFHc7/yuzmd3A==
+      wjf5770ce74
+    dungeon: cr gumu/gumukou 0
+    sectDungeon: false
+    loginCommand: >-
+      enable throwing jinshezhui;enable unarmed liumaishenjian;enable force
+      jiuyinshengong;enable dodge mingyugong;enable sword taijijian2;enable
+      blade xuedao;enable club juemengun;enable staff shedaoqigong;enable whip
+      qiufengfuchen;enable parry yihuajiemu;eq 5riw98fdaca;eq 87up9525bce;eq
+      jqiw93fda9a;eq b9r19fea348;eq n2fp939ee0c;eq is5h940a73e;eq 8tjx8f3100d;eq
+      cppj922ec34;eq stsx9b5c8c7;eq 0615900a2cd;eq wh119c34c44;
+    logoutCommand: ''
+  - name: 醉无秋
+    server: ws://120.77.213.218:25632
+    token: >-
+      1877ef04bc7d46d5a5dde6194c49c3b5
+      8nYU9ALg+g0GAApYEPhMr6W3zBYXTN5G9kh6IdfmPYbtqRfRBghRyM3lZWAumCPa2lczOLpPe3FUOlt+6lrrtw==
+      79vb2beb087
+    dungeon: cr zsd/damen 1
+    sectDungeon: true
+    loginCommand: >-
+      enable throwing 79vb2beb087;enable unarmed tianmoce;enable force
+      79vb2beb087;enable dodge tianmoce;enable sword dugujiujian4;enable blade
+      xuedao;enable club baguagun;enable staff fumozhang;enable whip
+      79vb2beb087;enable parry tianmoce;eq 0s679a3b84f;eq 74f94969929;eq
+      3c3544a23e3;eq illz595b8e9;eq 24wv3ffa0cf;eq 20pv3b5bdd3;eq dwi8344aa6a;eq
+      w8th70ad672;eq fn2m7255639;eq 6e854553924;eq ehafb971eda;
+    logoutCommand: ''
+
