@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 安装环境
-        run: npm i && node . -r
+        run: pwd && ls -a
