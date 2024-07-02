@@ -22,8 +22,6 @@ function loginQueue(configs, userConfig) {
     if (configs.length > 0) {
       const nextConfig = configs.shift();
       loginQueue(configs, nextConfig);
-    } else if (options.run) {
-      process.exit(0);
     }
   });
 }
