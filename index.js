@@ -1,13 +1,11 @@
 const fs = require('fs');
 const yaml = require('js-yaml');
 const { Command } = require('commander');
-const schedule = require('node-schedule');
 const Daily = require('./source/librarys/daily');
 const program = new Command();
 
 program
-  .option('-r, --run', '立即运行一次')
-  .option('-t --time <cron>', '设置定时<cron表达式>');
+  .option('-r, --run', '立即运行一次');
 
 program.parse(process.argv);
 const options = program.opts();
@@ -18,6 +16,9 @@ function loginQueue(configs, userConfig) {
     if (configs.length > 0) {
       const nextConfig = configs.shift();
       loginQueue(configs, nextConfig);
+    } else {
+      // 如果队列为空，直接退出程序
+      process.exit(0);
     }
   });
 }
@@ -29,9 +30,3 @@ if (options.run) {
   });
 }
 
-schedule.scheduleJob(options.time ? options.time : '5 5 5,17 * * *', () => {
-  const configs = yaml.load(fs.readFileSync('config.yaml'));
-  configs.splice(0, 30).forEach((userConfig) => {
-    loginQueue(configs, userConfig);
-  });
-});
