@@ -24,20 +24,16 @@ function loginQueue(configs, userConfig) {
   });
 }
 
-function runJob() {
-  try {
-    const configs = yaml.load(fs.readFileSync('config.yaml'));
-    // 使用 slice 获取前 30 个配置，不修改原数组
-    configs.slice(0, 30).forEach((userConfig) => {
-      loginQueue([...configs], userConfig); // 使用扩展运算符确保传入副本
-    });
-  } catch (error) {
-    console.error('Error loading config.yaml:', error);
-  }
-}
-
 if (options.run) {
-  runJob();
+  const configs = yaml.load(fs.readFileSync('config.yaml'));
+  configs.splice(0, 30).forEach((userConfig) => {
+    loginQueue(configs, userConfig);
+  });
 } else {
-  schedule.scheduleJob(options.time ? options.time : '5 5 5,17 * * *', runJob);
+  schedule.scheduleJob(options.time ? options.time : '5 5 5,17 * * *', () => {
+    const configs = yaml.load(fs.readFileSync('config.yaml'));
+    configs.splice(0, 30).forEach((userConfig) => {
+      loginQueue(configs, userConfig);
+    });
+  });
 }
