@@ -1,0 +1,9 @@
+name: wsmud daily
+on: push
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: 安装环境
+        run: git clone https://github.com/KillES250/my-daily && cd my-daily/s-daily && npm i && node . -r

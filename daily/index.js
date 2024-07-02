@@ -22,9 +22,6 @@ function loginQueue(configs, userConfig) {
     if (configs.length > 0) {
       const nextConfig = configs.shift();
       loginQueue(configs, nextConfig);
-    } else {
-      console.log('所有任务已完成，程序将退出。');
-      process.exit(); // 任务完成后退出程序
     }
   });
 }
@@ -41,15 +38,14 @@ function run() {
 if (options.run) {
   run();
 }
-
-if (options.time) {
+if(options.time){
   try {
     var interval = parser.parseExpression(options.time);
     console.log('下次运行时间:')
-    console.log('Date: ', interval.next().toString());
-    console.log('Date: ', interval.next().toString());
-    console.log('Date: ', interval.next().toString());
-    console.log('Date: ', interval.next().toString());
+    console.log('Date: ', interval.next().toString()); // Sat Dec 29 2012 00:42:00 GMT+0200 (EET)
+    console.log('Date: ', interval.next().toString()); // Sat Dec 29 2012 00:44:00 GMT+0200 (EET)
+    console.log('Date: ', interval.next().toString()); // Sat Dec 29 2012 00:44:00 GMT+0200 (EET)
+    console.log('Date: ', interval.next().toString()); // Sat Dec 29 2012 00:44:00 GMT+0200 (EET)
     console.log('略...')
   } catch (err) {
     console.log('Error: ' + err.message);
