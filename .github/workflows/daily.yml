@@ -3,8 +3,8 @@ on:
   schedule:
     - cron:  '30 5 7,15 * *'
 jobs:
-  job1:
-    runs-on: ubuntu-18.04
+  test_schedule:
+    runs-on: ubuntu-latest
     steps:
-      - name: 安装环境
-      run: apt install nodejs npm -y && echo "hello world!"
+      - name: hello world
+        run: echo "hello world!"
