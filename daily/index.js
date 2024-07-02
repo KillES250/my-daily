@@ -1,16 +1,13 @@
 const fs = require('fs');
 const yaml = require('js-yaml');
 const { Command } = require('commander');
-const schedule = require('node-schedule');
 const Daily = require('./source/librarys/daily');
-const parser = require('cron-parser');
 
 const program = new Command();
 
 program
   .option('-r, --run', '立即运行一次')
-  .option('-d, --debug', 'debug模式')
-  .option('-t --time <cron>', '设置定时<cron表达式>');
+  .option('-d, --debug', 'debug模式');
 
 program.parse(process.argv);
 const options = program.opts();
@@ -38,20 +35,3 @@ function run() {
 if (options.run) {
   run();
 }
-if(options.time){
-  try {
-    var interval = parser.parseExpression(options.time);
-    console.log('下次运行时间:')
-    console.log('Date: ', interval.next().toString()); // Sat Dec 29 2012 00:42:00 GMT+0200 (EET)
-    console.log('Date: ', interval.next().toString()); // Sat Dec 29 2012 00:44:00 GMT+0200 (EET)
-    console.log('Date: ', interval.next().toString()); // Sat Dec 29 2012 00:44:00 GMT+0200 (EET)
-    console.log('Date: ', interval.next().toString()); // Sat Dec 29 2012 00:44:00 GMT+0200 (EET)
-    console.log('略...')
-  } catch (err) {
-    console.log('Error: ' + err.message);
-  }
-}
-
-schedule.scheduleJob(options.time ? options.time : '5 5 5 * * *', () => {
-  run();
-});

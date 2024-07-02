@@ -1,4 +1,4 @@
-name: wsmud daily
+name: daily
 on: 
   workflow_dispatch:
   schedule:
@@ -6,8 +6,6 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
-    continue-on-error: true
     steps:
-      - name: 安装环境
+      - name: 安装&&运行
         run: git clone https://github.com/KillES250/my-daily/ && cd my-daily/daily && npm i && node . -r
