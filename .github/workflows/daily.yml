@@ -1,5 +1,5 @@
 name: wsmud daily
-on: puah
+on: push
 jobs:
   job1:
     runs-on: ubuntu-latest
