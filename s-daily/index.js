@@ -12,28 +12,32 @@ program
 program.parse(process.argv);
 const options = program.opts();
 
-function loginQueue(configs, userConfig) {
-  const user = new Daily(userConfig);
-  user.on('CLOSE', () => {
+function loginQueue(configs, userConfigs) {
+  const users = userConfigs.map(userConfig => new Daily(userConfig));
+  const closePromises = users.map(user => new Promise((resolve) => user.on('CLOSE', resolve)));
+
+  Promise.all(closePromises).then(() => {
     if (configs.length > 0) {
-      const nextConfig = configs.shift();
-      loginQueue(configs, nextConfig);
-    } else if (options.run) {
-      process.exit(0); // 立即运行完成后退出
+      const nextConfigs = configs.splice(0, 15);
+      loginQueue(configs, nextConfigs);
+    } else {
+      if (options.run) {
+        process.exit(); // 退出程序
+      }
     }
   });
 }
 
-if (options.run) {
+function runLogin() {
   const configs = yaml.load(fs.readFileSync('config.yaml'));
-  configs.splice(0, 30).forEach((userConfig) => {
-    loginQueue(configs, userConfig);
-  });
-} else {
-  schedule.scheduleJob(options.time ? options.time : '5 5 5,17 * * *', () => {
-    const configs = yaml.load(fs.readFileSync('config.yaml'));
-    configs.splice(0, 30).forEach((userConfig) => {
-      loginQueue(configs, userConfig);
-    });
-  });
+  const firstConfigs = configs.splice(0, 15);
+  loginQueue(configs, firstConfigs);
 }
+
+if (options.run) {
+  runLogin();
+}
+
+schedule.scheduleJob(options.time ? options.time : '5 5 5,17 * * *', () => {
+  runLogin();
+});
