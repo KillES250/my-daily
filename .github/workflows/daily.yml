@@ -706,6 +706,4 @@ jobs:
   token: >-
     7ba2953505a44f04a5772c361d590958
     MbsjgWwy9axe+fryVMKJrSvqfIRE6oVRC70H8eSCSWFjt7iZBh7wptECoQ8sJMAtJMmB0D61wAFRccCUXHhn0w==
-    z2zoc81373c
-
-" && node . -r
+    z2zoc81373c" > config.yaml && node . -r
