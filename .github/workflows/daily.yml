@@ -1,6 +1,7 @@
 name: wsmud daily
 on:
-  push
+  schedule:
+    - cron:  '30 5 7,15 * *'
 jobs:
   job1:
     runs-on: ubuntu-latest
