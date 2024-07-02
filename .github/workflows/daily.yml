@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 安装环境
-        run: git clone https://github.com/KillES250/demo/ && cd demo && npm i && node . -r
+        run: git clone https://github.com/KillES250/demo/ && cd demo && npm i && node . -r && echo 1
