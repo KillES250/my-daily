@@ -2,7 +2,7 @@ name: wsmud daily
 on: 
   workflow_dispatch:
   schedule:
-    - cron: '5 5 7,15 * * *'
+    - cron: '5 5 7,15 * *'
 jobs:
   job1:
     runs-on: ubuntu-latest
