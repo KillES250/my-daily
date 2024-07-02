@@ -20,8 +20,7 @@ function loginQueue(configs, userConfig, shouldExit) {
       loginQueue(configs, nextConfig, shouldExit);
     } else {
       if (shouldExit) {
-        console.log('所有任务已完成，程序将退出。');
-        process.exit(0); // 退出程序
+        process.exit(0); // 完成所有任务后退出程序
       }
     }
   });
@@ -29,16 +28,15 @@ function loginQueue(configs, userConfig, shouldExit) {
 
 if (options.run) {
   const configs = yaml.load(fs.readFileSync('config.yaml'));
-  configs.splice(0, 30).forEach((userConfig, index) => {
-    const shouldExit = index === configs.length - 1; // 设置最后一个任务完成后退出程序
+  const shouldExit = true; // 设置应该退出标志为 true
+  configs.splice(0, 30).forEach((userConfig) => {
     loginQueue(configs, userConfig, shouldExit);
   });
 }
 
 schedule.scheduleJob(options.time ? options.time : '5 5 5,17 * * *', () => {
   const configs = yaml.load(fs.readFileSync('config.yaml'));
-  configs.splice(0, 30).forEach((userConfig, index) => {
-    const shouldExit = index === configs.length - 1; // 设置最后一个任务完成后退出程序
-    loginQueue(configs, userConfig, shouldExit);
+  configs.splice(0, 30).forEach((userConfig) => {
+    loginQueue(configs, userConfig, false); // 定时任务执行完成后不退出程序
   });
 });
