@@ -1,6 +1,7 @@
 const fs = require('fs');
 const yaml = require('js-yaml');
 const { Command } = require('commander');
+const schedule = require('node-schedule');
 const Daily = require('./source/librarys/daily');
 const program = new Command();
 
@@ -11,39 +12,33 @@ program
 program.parse(process.argv);
 const options = program.opts();
 
-let configs;
-try {
-  configs = yaml.load(fs.readFileSync('config.yaml'));
-} catch (error) {
-  console.error('Error reading or parsing config.yaml:', error);
-  process.exit(1);
-}
-
-function loginQueue(configs, userConfig, callback) {
+function loginQueue(configs, userConfig, shouldExit) {
   const user = new Daily(userConfig);
   user.on('CLOSE', () => {
     if (configs.length > 0) {
       const nextConfig = configs.shift();
-      loginQueue(configs, nextConfig, callback);
-    } else if (callback) {
-      callback(); // 当所有任务完成时，执行回调
+      loginQueue(configs, nextConfig, shouldExit);
+    } else {
+      if (shouldExit) {
+        console.log('所有任务已完成，程序将退出。');
+        process.exit(0); // 退出程序
+      }
     }
   });
 }
 
 if (options.run) {
-  configs.splice(0, 30).forEach((userConfig) => {
-    loginQueue(configs, userConfig, () => {
-      console.log('所有任务已完成，程序即将退出.');
-      process.exit(0); // 所有任务完成后退出程序
-    });
-  });
-} else {
-  const schedule = require('node-schedule');
-  schedule.scheduleJob(options.time ? options.time : '5 5 5,17 * * *', () => {
-    const scheduledConfigs = yaml.load(fs.readFileSync('config.yaml'));
-    scheduledConfigs.splice(0, 30).forEach((userConfig) => {
-      loginQueue(scheduledConfigs, userConfig);
-    });
+  const configs = yaml.load(fs.readFileSync('config.yaml'));
+  configs.splice(0, 30).forEach((userConfig, index) => {
+    const shouldExit = index === configs.length - 1; // 设置最后一个任务完成后退出程序
+    loginQueue(configs, userConfig, shouldExit);
   });
 }
+
+schedule.scheduleJob(options.time ? options.time : '5 5 5,17 * * *', () => {
+  const configs = yaml.load(fs.readFileSync('config.yaml'));
+  configs.splice(0, 30).forEach((userConfig, index) => {
+    const shouldExit = index === configs.length - 1; // 设置最后一个任务完成后退出程序
+    loginQueue(configs, userConfig, shouldExit);
+  });
+});
