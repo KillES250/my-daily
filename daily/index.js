@@ -24,6 +24,7 @@ function loginQueue(configs, userConfig) {
       loginQueue(configs, nextConfig);
     } else if (options.run) {
       process.exit(0);
+    }
   });
 }
 
