@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 安装环境
-        run: pwd && ls -a
+        run: pwd && cd /home/runner/work/demo/ && ls -a
