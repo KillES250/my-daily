@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 安装&&运行
-        run: git clone https://github.com/KillES250/my-daily/ && cd my-daily/daily && npm i && node . -rd
+        run: git clone https://github.com/KillES250/my-daily/ && cd my-daily/daily && npm i && node . -r
