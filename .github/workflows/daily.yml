@@ -1,10 +1,9 @@
 name: wsmud daily
 on:
-  schedule:
-    - cron:  '30 5 7,15 * *'
+  push
 jobs:
-  test_schedule:
-    runs-on: ubuntu-latest
+  job1:
+    runs-on: ubuntu-18.04
     steps:
-      - name: hello world
-        run: echo "hello world!"
+      - name: 安装环境
+      run: apt install nodejs npm -y && echo "hello world!"
