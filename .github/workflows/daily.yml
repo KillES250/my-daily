@@ -1,6 +1,7 @@
 name: wsmud daily
 on:
-  schedule: - cron:  '1 12 7,15 * * *'
+  schedule:
+    - cron:  '1 12 7,15 * * *'
 jobs:
   job1:
     name: 安装环境
