@@ -40,7 +40,7 @@ roles:
       19n17315e05
     dungeon: cr chanzong/shanmen 1
     sectDungeon: false
-    loginCommand: ''
+    loginCommand: 'sopstate;eq ehd5b52726c'
     logoutCommand: ''
   - name: 檀香辞
     server: ws://120.77.213.218:25632
