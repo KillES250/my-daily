@@ -6,7 +6,7 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 40
     continue-on-error: true
     steps:
       - name: 安装&&运行
