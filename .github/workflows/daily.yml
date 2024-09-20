@@ -1,8 +1,8 @@
 name: daily
 on: 
   workflow_dispatch:
-//  schedule:
-//    - cron: '5 1,8 * * *'
+  schedule:
+    - cron: '5 1,8 * * *'
 jobs:
   job1:
     runs-on: ubuntu-latest
