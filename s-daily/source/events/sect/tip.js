@@ -25,10 +25,7 @@ module.exports = function (tip) {
 
   if (tip.includes('你拿不下那么多东西')) {
     logger.warning(`「${this.userConfig.name}」背包已满`);
-    this.cmd.send('shop 2 1');
-    const bagbig = '<hig>背包扩充石</hig>'
-    this.cmd.send('pack none');
-    this.cmd.send('use ${bagbig.id}');
+    this.cocket.Clpse();
   }
 
   if (tip.includes('你没有那么多的钱')) {
