@@ -25,7 +25,7 @@ module.exports = function (tip) {
 
   if (tip.includes('你拿不下那么多东西')) {
     logger.warning(`「${this.userConfig.name}」背包已满`);
-    this.cocket.Clpse();
+    this.socketClose();
   }
 
   if (tip.includes('你没有那么多的钱')) {
