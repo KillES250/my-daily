@@ -29,7 +29,6 @@ module.exports = function (tip) {
     const bagbig = '<hig>背包扩充石</hig>');
     this.cmd.send('pack none');
     this.cmd.send('use ${bagbig.id}');
-    this.socketClose();
   }
 
   if (tip.includes('你没有那么多的钱')) {
