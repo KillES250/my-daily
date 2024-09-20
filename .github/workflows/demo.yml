@@ -1,4 +1,4 @@
-name: s-daily
+name: demo
 on: 
   workflow_dispatch:
 jobs:
