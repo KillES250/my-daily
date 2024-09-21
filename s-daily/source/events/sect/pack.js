@@ -2,7 +2,7 @@ const logger = require('../../librarys/logger');
 
 module.exports = function (data) {
   const items = data.items;
-  if(items === null || items === undefined || item ===") {
+  if(items === null || items === undefined) {
   return;
   } else {
   items.forEach(item => {
