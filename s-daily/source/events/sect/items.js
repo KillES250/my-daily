@@ -25,7 +25,9 @@ module.exports = function (data) {
         this.attach(this.dungeonEvents);
         this.cmd.send('tasks');
       } else {
-        this.cmd.send(this.sect.chiefWay);
+        this.nowTask = 'dungeon';
+        this.attach(this.dungeonEvents);
+        this.cmd.send('tasks');
       }
       break;
     case this.sectTaskInfo.sellerRoomId:
