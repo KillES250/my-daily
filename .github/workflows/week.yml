@@ -1,8 +1,8 @@
 name: week
 on: 
   workflow_dispatch:
-  schedule:
-    - cron: '5 16 * * *'
+//  schedule:
+//    - cron: '5 16 * * *'
 jobs:
   job1:
     runs-on: ubuntu-latest
