@@ -1,4 +1,4 @@
-name: s-daily
+name: wsmud
 on: 
   workflow_dispatch:
   schedule:
