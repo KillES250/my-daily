@@ -1,0 +1,30 @@
+pushpushpush: ''
+dailytime: ''
+wartime: ''
+weektime: ''
+roles:
+  - name: 刀典
+    server: ws://120.77.213.218:25632
+    token: >-
+      8de4a71c9ae8483bb34054335463f5c0
+      MlDAbGlVMUTu1DaP5b2RiGt3ZiqndFrKWTUySG0grhaWRCEc74YIfNf2WXrjUGd702wK4ug7v5RxY7Jgd4KZ7g==
+      i691163e1c1
+    loginCommand: ''
+    logoutCommand: ''
+    canlogin: true
+    redboss: true
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: saodang muyuan
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: false
+      yunbiao: false
+      tazhu: null
+      yaoshen: null

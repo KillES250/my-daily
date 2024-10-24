@@ -72,22 +72,6 @@ roles:
     sectDungeon: false
     loginCommand: >-
     logoutCommand: ''
-  - name: 秋翎
-    server: ws://120.77.213.218:25632
-    token: >-
-      2fdfa7f2fdb14fcf9f70075b434177e4
-      UfBcRnRxWHC4fh9MLOMzEslf55HBb+MHjimrUruJERoylO84TYDJoSORkkO3791RtHTr+nsf38b3/mO0ghKZSQ==
-      sflb64b20c0
-    dungeon: cr zsd/damen 1
-    sectDungeon: true
-    loginCommand: >-
-      enable throwing sflb64b20c0;enable unarmed jiuyinbaiguzhao2;enable force
-      cihangjiandian;enable dodge lingxibu;enable sword sflb64b20c0;enable blade
-      xuedao;enable club juemengun;enable staff shedaoqigong;enable whip
-      yunlongbian;enable parry yihuajiemu;eq qju069b574e;eq n8qnb651ef0;eq
-      npet9dab7d0;eq undefined;eq wzn76f670e0;eq zz4k8c6af69;eq votj6674440;eq
-      bufz9dab7ca;eq zb92b651ef4;eq itln726b023;eq b7pf6daad4e;
-    logoutCommand: ''
   - name: 超大份可乐
     server: ws://120.77.213.218:25634
     token: >-
@@ -104,20 +88,3 @@ roles:
       jqiw93fda9a;eq b9r19fea348;eq n2fp939ee0c;eq is5h940a73e;eq 8tjx8f3100d;eq
       cppj922ec34;eq stsx9b5c8c7;eq 0615900a2cd;eq wh119c34c44;
     logoutCommand: ''
-  - name: 醉无秋
-    server: ws://120.77.213.218:25632
-    token: >-
-      1877ef04bc7d46d5a5dde6194c49c3b5
-      8nYU9ALg+g0GAApYEPhMr6W3zBYXTN5G9kh6IdfmPYbtqRfRBghRyM3lZWAumCPa2lczOLpPe3FUOlt+6lrrtw==
-      79vb2beb087
-    dungeon: cr zsd/damen 1
-    sectDungeon: true
-    loginCommand: >-
-      enable throwing 79vb2beb087;enable unarmed tianmoce;enable force
-      79vb2beb087;enable dodge tianmoce;enable sword dugujiujian4;enable blade
-      xuedao;enable club baguagun;enable staff fumozhang;enable whip
-      79vb2beb087;enable parry tianmoce;eq 0s679a3b84f;eq 74f94969929;eq
-      3c3544a23e3;eq illz595b8e9;eq 24wv3ffa0cf;eq 20pv3b5bdd3;eq dwi8344aa6a;eq
-      w8th70ad672;eq fn2m7255639;eq 6e854553924;eq ehafb971eda;
-    logoutCommand: ''
-

@@ -1,0 +1,97 @@
+pushpushpush: ''
+dailytime: ''
+wartime: ''
+weektime: ''
+roles:
+  - name: 梅狸猫
+    server: ws://120.77.213.218:25632
+    token: >-
+      2e95bcc5af8b404cbfd5fb4bed16b68a
+      Ax0bpDpbqSIrMxe5tn/HA967OfSzftqDa6W8VSEq0R8CsNaHZGJslXTXmYph28Y8MLh6tTy4mbKSl+E+pre8pA==
+      1q6w456e9a7
+    canlogin: true
+    redboss: false
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr zsd/damen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
+  - name: 咩阿栗
+    server: ws://120.77.213.218:25633
+    token: >-
+      632b1137e5f34c7c8ccbd241bf535e71
+      d+RwJYxJ4BSg2qHSv2aImphebYX+exjC7SfV8W79qvz+GuRr6DmqEUXjSSaqH+oCKVsjjbVMWexrocBGWOdg2w==
+      itgb2133989
+    canlogin: true
+    redboss: true
+    leitai: false
+    dungeons:
+      first: true
+      second: true
+      third: saodang muyuan
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: true
+      yaoshen: true
+  - name: 醉无秋
+    server: ws://120.77.213.218:25632
+    token: >-
+      b093adb308ff419a85801215e8df1902
+      yUr+Lo3BpIWQqpEdoo0wfXnJ/sVdjJHF6lPu8dma16OXumUM6Uk7JArYkXZtL7pkIB1mMmese4YzTN/tQv+TFw==
+      79vb2beb087
+    canlogin: true
+    redboss: true
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: saodang muyuan
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: false
+      yaoshen: true
+  - name: 秋翎
+    server: ws://120.77.213.218:25632
+    token: >-
+      b093adb308ff419a85801215e8df1902
+      yUr+Lo3BpIWQqpEdoo0wfXnJ/sVdjJHF6lPu8dma16OXumUM6Uk7JArYkXZtL7pkIB1mMmese4YzTN/tQv+TFw==
+      sflb64b20c0
+    canlogin: true
+    redboss: false
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr zsd/damen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
