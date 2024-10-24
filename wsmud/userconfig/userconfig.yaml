@@ -95,3 +95,49 @@ roles:
       yunbiao: true
       tazhu: false
       yaoshen: null
+  - name: 万里无疆
+    server: ws://120.77.213.218:25632
+    token: >-
+    d1ca26729d694f4b936e4b2280d9e79e
+    feJnMzlbfMTntu7dCT3OjBUBuZZd4FQoruw/8/bl2RP0UUKN5XZdP19wfts+McNQRgCEuTBouZnPjNVXxAkGVA==
+    wk3k32d39ab
+    canlogin: true
+    redboss: false
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr zsd/damen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
+  - name: 苇名屑一郎
+    server: ws://120.77.213.218:25634
+    token: >-
+    289c64f80f9e498ab8695def4f5b51bd
+    XVEiCm5854uEkxy2wgMJkkCfYVlSMovwHCOLEo1R+IHhJQJjQZKgL2Lo8UDBSvzn1ogrx0tH+3imlT0Vds7vig==
+    ej9d363467d
+    canlogin: true
+    redboss: true
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr zsd/damen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
