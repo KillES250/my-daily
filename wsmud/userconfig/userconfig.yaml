@@ -71,7 +71,7 @@ roles:
       xiangyang: true
       yunbiao: false
       tazhu: false
-      yaoshen: true
+      yaoshen: null
   - name: 秋翎
     server: ws://120.77.213.218:25632
     token: >-
