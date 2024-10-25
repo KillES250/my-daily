@@ -3,20 +3,41 @@ dailytime: ''
 wartime: ''
 weektime: ''
 roles:
-  - name: 刀典
+  - name: 梅狸猫
     server: ws://120.77.213.218:25632
     token: >-
-      8de4a71c9ae8483bb34054335463f5c0
-      MlDAbGlVMUTu1DaP5b2RiGt3ZiqndFrKWTUySG0grhaWRCEc74YIfNf2WXrjUGd702wK4ug7v5RxY7Jgd4KZ7g==
-      i691163e1c1
-    loginCommand: ''
-    logoutCommand: ''
+      2e95bcc5af8b404cbfd5fb4bed16b68a
+      Ax0bpDpbqSIrMxe5tn/HA967OfSzftqDa6W8VSEq0R8CsNaHZGJslXTXmYph28Y8MLh6tTy4mbKSl+E+pre8pA==
+      1q6w456e9a7
+    canlogin: true
+    redboss: false
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr zsd/damen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
+  - name: 咩阿栗
+    server: ws://120.77.213.218:25633
+    token: >-
+      632b1137e5f34c7c8ccbd241bf535e71
+      d+RwJYxJ4BSg2qHSv2aImphebYX+exjC7SfV8W79qvz+GuRr6DmqEUXjSSaqH+oCKVsjjbVMWexrocBGWOdg2w==
+      itgb2133989
     canlogin: true
     redboss: true
     leitai: false
     dungeons:
-      first: false
-      second: false
+      first: true
+      second: true
       third: saodang muyuan
       fourth: false
     war:
@@ -24,7 +45,122 @@ roles:
       gang: false
       leader: false
     week:
-      xiangyang: false
+      xiangyang: true
       yunbiao: false
-      tazhu: null
+      tazhu: true
+      yaoshen: true
+  - name: 醉无秋
+    server: ws://120.77.213.218:25632
+    token: >-
+      b093adb308ff419a85801215e8df1902
+      yUr+Lo3BpIWQqpEdoo0wfXnJ/sVdjJHF6lPu8dma16OXumUM6Uk7JArYkXZtL7pkIB1mMmese4YzTN/tQv+TFw==
+      79vb2beb087
+    canlogin: true
+    redboss: true
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: saodang muyuan
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
       yaoshen: null
+  - name: 秋翎
+    server: ws://120.77.213.218:25632
+    token: >-
+      b093adb308ff419a85801215e8df1902
+      yUr+Lo3BpIWQqpEdoo0wfXnJ/sVdjJHF6lPu8dma16OXumUM6Uk7JArYkXZtL7pkIB1mMmese4YzTN/tQv+TFw==
+      sflb64b20c0
+    canlogin: true
+    redboss: false
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr zsd/damen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
+  - name: 万里无疆
+    server: ws://120.77.213.218:25632
+    token: >-
+      d1ca26729d694f4b936e4b2280d9e79e
+      feJnMzlbfMTntu7dCT3OjBUBuZZd4FQoruw/8/bl2RP0UUKN5XZdP19wfts+McNQRgCEuTBouZnPjNVXxAkGVA==
+      wk3k32d39ab
+    canlogin: true
+    redboss: false
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr zsd/damen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
+  - name: 苇名屑一郎
+    server: ws://120.77.213.218:25634
+    token: >-
+      289c64f80f9e498ab8695def4f5b51bd
+      XVEiCm5854uEkxy2wgMJkkCfYVlSMovwHCOLEo1R+IHhJQJjQZKgL2Lo8UDBSvzn1ogrx0tH+3imlT0Vds7vig==
+      ej9d363467d
+    canlogin: true
+    redboss: true
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr zsd/damen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
+  - name: 郭靖
+    server: ws://120.77.213.218:25632
+    token: >-
+      9c44231738744a468f95ee97867fb040
+      fP+dcr4fByMBGEWKb6bBsIZCBokkBUI6+zPIIUSHbsHxVYEnFfaOViQFwYHa0V2qb5mtYie6QmYkz5d5yJxl4g==
+      p23219f9c9b
+    canlogin: true
+    redboss: true
+    leitai: false
+    dungeons:
+      first: true
+      second: true
+      third: saodang muyuan
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: true
+      yaoshen: true
