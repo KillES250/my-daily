@@ -141,3 +141,26 @@ roles:
       yunbiao: true
       tazhu: false
       yaoshen: null
+  - name: 郭靖
+    server: ws://120.77.213.218:25632
+    token: >-
+      9c44231738744a468f95ee97867fb040
+      fP+dcr4fByMBGEWKb6bBsIZCBokkBUI6+zPIIUSHbsHxVYEnFfaOViQFwYHa0V2qb5mtYie6QmYkz5d5yJxl4g==
+      p23219f9c9b
+    canlogin: true
+    redboss: true
+    leitai: false
+    dungeons:
+      first: true
+      second: true
+      third: saodang muyuan
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: true
+      yaoshen: true
