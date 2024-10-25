@@ -158,7 +158,7 @@ roles:
     war:
       family: false
       gang: false
-      leader: false
+      leader: true
     week:
       xiangyang: true
       yunbiao: true
