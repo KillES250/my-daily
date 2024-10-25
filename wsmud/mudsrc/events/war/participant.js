@@ -42,7 +42,7 @@ module.exports = async function (data) {
                 }
                 if (data.name){
                     // 分解除白色、橙色之外的装备
-                    if (!data.name.includes('<hio>') && !data.name.includes('<wht>')){
+                    if (!data.name.includes('<hio>') && !data.name.includes('<wht>') && data.name.includes('君子')){
                         this.cmd.send(`fenjie ${data.id}`);
                     }
                     return;

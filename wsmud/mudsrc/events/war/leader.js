@@ -42,7 +42,7 @@ module.exports = async function (data) {
             }
             // 拾取分解 
             else if (data.dialog === 'pack' && data.name) {
-                if (!data.name.includes('<hio>') && !data.name.includes('<wht>')){
+                if (!data.name.includes('<hio>') && !data.name.includes('<wht>') && data.name.includes('君子')){
                     this.cmd.send(`fenjie ${data.id}`);
                 }
             }

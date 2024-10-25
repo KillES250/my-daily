@@ -9,7 +9,6 @@ const week = require('./week.js');
 const war = require('./war.js');
 
 const allJobs = [];
-
 async function runall() {
     try {
         const data = await fs.promises.readFile(userconfig, 'utf8');

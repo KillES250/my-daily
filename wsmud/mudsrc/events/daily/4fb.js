@@ -100,7 +100,7 @@ module.exports = async function (data) {
                 }
             break;
         case 'dialog':
-            if(data.type === 'pack' && data.name){
+            if(data.dialog === 'pack' && data.name){
                 if(this.gameInfo.useLessItems.includes(data.name)){
                     this.cmd.send(`fenjie ${data.id}`);
                 }else if(data.name.includes('玉简')){

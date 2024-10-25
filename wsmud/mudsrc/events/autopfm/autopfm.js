@@ -46,7 +46,8 @@ module.exports = async function (data){
             if(data.id === 'sword.lai' || data.id === 'sword.ji'){
                 this.cmd.send('perform unarmed.zuo');
             }
-            if(this.weekAutoPfmModel === true || this.war === 'start' || this.bossId){
+            // 当塔主跟boss以及帮战开始时，如果出招返回有这些buff，则直接跳出并指向————>case 'status':add位置
+            if(this.userConfig.week.tazhu === true || this.war === 'start' || this.userConfig.redboss === true){
                 if(buffList.some(buff => buff.id === data.id)){
                     return;
                 }
@@ -128,10 +129,12 @@ module.exports = async function (data){
             }
             if(data.action === 'add') { 
                 this.userStatus.add(data.sid);
-                const thisBuffskill = buffList.find(buff => buff.name === data.name);
-                if(thisBuffskill){
-                    this.cd.add(thisBuffskill.id);
-                    setTimeout(()=>this.cd.delete(thisBuffskill.id), data.duration);
+                if(this.userConfig.week.tazhu === true || this.war === 'start' || this.userConfig.redboss === true){
+                    const thisBuffskill = buffList.find(buff => buff.name === data.name);
+                    if(thisBuffskill){
+                        this.cd.add(thisBuffskill.id);
+                        setTimeout(()=>this.cd.delete(thisBuffskill.id), data.duration);
+                    }
                 }
             }
             else if(data.action === 'remove') { 
