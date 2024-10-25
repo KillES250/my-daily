@@ -26,6 +26,7 @@ roles:
       yunbiao: true
       tazhu: false
       yaoshen: null
+    logoutCommand: es task
   - name: 咩阿栗
     server: ws://120.77.213.218:25633
     token: >-
@@ -164,6 +165,7 @@ roles:
       yunbiao: true
       tazhu: true
       yaoshen: true
+    loginCommand: enable throwing p23219f9c9b;enable unarmed liumaishenjian;enable force p23219f9c9b;enable dodge p23219f9c9b;enable sword none;enable blade xiuluodao;enable club fumogun;enable staff fumozhang;enable whip none;enable parry p23219f9c9b;
   - name: 黑白大帝
     server: ws://120.77.213.218:25632
     token: >-
