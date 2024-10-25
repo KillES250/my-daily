@@ -1,7 +1,7 @@
 pushpushpush: ''
-dailytime: ''
-wartime: ''
-weektime: ''
+dailytime: 09:20|15:00
+wartime: 20:10橙|21:15橙|22:20红
+weektime: 5:12:30|6:12:20
 roles:
   - name: 梅狸猫
     server: ws://120.77.213.218:25632
@@ -157,7 +157,7 @@ roles:
       fourth: false
     war:
       family: false
-      gang: false
+      gang: true
       leader: true
     week:
       xiangyang: true
