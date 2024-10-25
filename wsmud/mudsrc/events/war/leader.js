@@ -3,7 +3,7 @@ const path = require('path');
 const yaml = require('js-yaml');
 const time = yaml.load(fs.readFileSync(path.resolve(__dirname, '../../../userconfig/userconfig.yaml')));
 
-var skillsForGangleader = ['force.xin', 'force.ding'];
+var skillsForGangleader = ['force.xin'];
 
 module.exports = async function (data) {
     switch (data.type) {
@@ -29,6 +29,7 @@ module.exports = async function (data) {
                 }else if (this.warMode === 'o'){
                     this.cmd.send('enable blade xiuluodao');
                     skillsForGangleader.push('unarmed.qi');
+                    skillsForGangleader.push('force.ding');
                 }
                 // 切换技能后等待pfm的返回绑定自动出招
                 await sleep(5);
@@ -67,7 +68,7 @@ module.exports = async function (data) {
                     this.war = 'start';
                     this.timerOfHaoLing = setInterval(() => {
                         this.haoLingNum += 1;
-                        if(this.haoLingNum === 4){
+                        if(this.haoLingNum === 5){
                             this.cmd.send(`pty 开始击杀`)
                         }
                     }, 300000); // 5分钟为300000毫秒
@@ -145,6 +146,7 @@ module.exports = async function (data) {
         case 'cmds':
             const muyuan = data.items.find(way => way.name.includes('传送到古大陆-墓园'));
             if(muyuan){
+                skillsForGangleader.push('force.ding');
                 this.cmd.send(muyuan.cmd)
             }
             break;

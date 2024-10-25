@@ -5,6 +5,7 @@ const { tipback } = require('../../example/tipback.js');
 
 let bossFightTestNum = 0;
 let lunjiantop = false;
+let yihuamgong = false;
 let skillsForRedBoss = ['blade.xue'];
 
 module.exports = async function (data) {
@@ -44,6 +45,10 @@ module.exports = async function (data) {
             if(this.roomPath === 'huashan/lunjian/top'){
                 lunjiantop = true;
             }
+            
+            if(this.roomPath === 'huashan/yihua/damen'){
+                yihuamgong = true;
+            }
             break;
         
         case 'item':
@@ -82,10 +87,15 @@ module.exports = async function (data) {
                 如果是被boss击杀，则会先返回战斗结束end，天师符3秒站立起来后，会返回新的items，并且从items返回处继续跳转流程
                 【战斗结束————> 买天师符 ————> 复活 ————> 获得新的items返回(boss存在)】这种情况不会在这里得到处理。
             */
-            if (data.end === 1 && this.relive === true){
+            console.log(data);
+            if (data.end && this.relive === true){
                 // 添加一个循环判定，确保items返回被解析完成后再进行下一步动作
                 while (this.itemsResult === false) {
                     await sleep(1);
+                    if(this.itemsResult === true){
+                        this.cmd.send('tm 调用当前路径判定');
+                        break;
+                    }
                 }
                 this.cmd.send('tm 调用当前路径判定');
             }
@@ -112,6 +122,7 @@ module.exports = async function (data) {
                 }
                 // 解析完毕，更改解析状态
                 this.itemsResult = true;
+                console.log(this.itemsResult)
                 // 如果处于战斗会等待战斗结束跳转到上面的combat-end处进行处理
                 if(this.isCombat === false){
                     this.cmd.send('tm 调用当前路径判定');
@@ -147,15 +158,19 @@ module.exports = async function (data) {
                 }
                 
                 // 移花宫迷宫判定
-                if(this.roomPath === 'huashan/yihua/yihua0'){
-                    while(this.roomPath === 'huashan/yihua/yihua0'){
-                        await sleep(1);
+                if(this.roomPath === 'huashan/yihua/yihua0' && yihuamgong === false){
                         this.cmd.send('go south');
-                    }
-                    // 这里循环被跳出后来到山道，等待 山道 的items的返回继续
+                         // 这里循环被跳出后来到山道，等待 山道 的items的返回继续
+                        break;
+                }
+
+
+                // 防止大门被立即调用
+                if(this.roomPath === 'huashan/yihua/damen'){
+                    await sleep(1);
+                    this.cmd.send('tm 调用下次路径判定')
                     break;
                 }
-                
                 //宫主房间判定(这里可能存在卡主的情况，暂不调整)
                 if(this.roomPath === 'huashan/yihua/woshi'){
                     this.cmd.send('pushstart bed')
@@ -251,6 +266,7 @@ module.exports = async function (data) {
             if(tipback.fail.test(data.data)){
                 logger.warning(`${this.userConfig.name}，缺少副本必要条件，即将退出副本流程`);
                 this.fbPath = []
+                this.cmd.send('cr over')
                 this.cmd.send('tm 调用结束');
                 break;
             }

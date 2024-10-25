@@ -208,7 +208,7 @@ module.exports = async function (data) {
                     }
                 } 
                 else if (this.room === '古大陆-墓园'){
-                    if(data.data.includes('你的精力不够，不能开启弑妖塔。') || data.data.includes('你尚未通关弑妖塔，不能挑战妖神。')){
+                    if(data.data.includes('你的精力不够，不能开启弑妖塔。') || data.data.includes('你尚未通关弑妖塔，不能挑战妖神。') || data.data.includes('你本周已经挑战过妖神，本妖塔需要恢复一段时间才可以继续挑战。')){
                         nextStep('yaoshen')
                     }
                 }

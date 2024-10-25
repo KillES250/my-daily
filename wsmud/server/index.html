@@ -10,13 +10,14 @@
     body {
         margin: 0;
         padding: 0;
-        display: grid;
+        display: flex;
         height: 100vh;
         min-height: 100vh;
         background-color: #f0f0f0;
     }
-
-    .main {
+    .main-left,
+    .main-mid,
+    .main-right {
         width: 33%;
         height: 100%;
         margin: 0 auto;
@@ -316,6 +317,7 @@
         background: #ededed;
         padding: 20px;
         font-weight: 600;
+        max-height: 75vh;
     }
     .rolseConfigs #optionsForm select{
         width: 120px;
@@ -438,7 +440,11 @@
     }
 </style>
 <body class="body">
-    <div class="main">
+    <div class = "main-left">
+        <h1>this is main-left</h1>
+        <h1>-for gamelink</h1>
+    </div>
+    <div class="main-mid">
         <div class="left">
             <button id="readConfig">读取配置</button>
             <button id="addRole">添加角色</button>
@@ -752,6 +758,10 @@
                 <button id="choiceConfirm">应用到角色</button>
             </div>
         </div>
+    </div>
+    <div class = "main-right">
+        <h1>this is main-right</h1>
+        <h1>-for tuiyan</h1>
     </div>
     <script>
         $(document).ready(function(){
