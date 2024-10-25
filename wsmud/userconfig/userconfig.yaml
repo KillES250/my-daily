@@ -258,6 +258,8 @@ roles:
       yunbiao: true
       tazhu: null
       yaoshen: null
+    loginCommand: enable throwing mantianhuayu2;enable unarmed liumaishenjian;enable force jiuyinshengong;enable dodge juemengun;enable sword xuantiejianfa;enable blade xuedao;enable club baguagun;enable staff shedaoqigong;enable whip qiufengfuchen;enable parry yihuajiemu;eq aewgaa5dfd4;eq s9fsb04d86f;eq w71mab38b7d;eq ux28b1cce5e;eq at3rb716e73;eq p1micc1b9a6;eq 846ja941a58;eq 7s46a9be44b;eq uljjb9e06c3;eq ees1c447feb;eq qj62b67a052;
+    logoutCommand: pty 日常结束
   - name: 辰洛
     server: ws://120.77.213.218:25632
     token: >-
@@ -281,5 +283,3 @@ roles:
       yunbiao: true
       tazhu: false
       yaoshen: null
-    loginCommand: enable throwing mantianhuayu2;enable unarmed liumaishenjian;enable force jiuyinshengong;enable dodge juemengun;enable sword xuantiejianfa;enable blade xuedao;enable club baguagun;enable staff shedaoqigong;enable whip qiufengfuchen;enable parry yihuajiemu;eq aewgaa5dfd4;eq s9fsb04d86f;eq w71mab38b7d;eq ux28b1cce5e;eq at3rb716e73;eq p1micc1b9a6;eq 846ja941a58;eq 7s46a9be44b;eq uljjb9e06c3;eq ees1c447feb;eq qj62b67a052;
-    logoutCommand: pty 日常结束
