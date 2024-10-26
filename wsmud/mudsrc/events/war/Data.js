@@ -1,6 +1,5 @@
 const path = require('path');
 const logger = require(path.resolve(__dirname, '../../../server/logger'));
-let roomName = null;
 
 module.exports = async function (data) {
     switch (data.type) {
@@ -8,24 +7,19 @@ module.exports = async function (data) {
             logger.success(`「${this.userConfig.name}」登录成功`);
             // 关闭自动出招、自动反击、自动工作。开启自动拾取
             this.cmd.send('setting auto_pfm 0;setting auto_pfm2 0;setting auto_work 0;setting auto_get 1');
-            if (this.userConfig.war.leader === true) {
-                await sleep(1);
-                this.cmd.send('cr over')
-            } else {
-                this.cmd.send('cr over')
-            }
+            this.cmd.send('relive;cr over')
             this.cmd.send('stopstate');
             this.cmd.send(this.userConfig.loginCommand);
             if(this.userConfig.war.family === true){
                 console.log('门派模式')
                 this.emit('Data',{type:'start'});
             }else {
-                if (roomName !== '帮会-练功房') {
+                if (this.room !== '帮会-练功房') {
                     this.cmd.send('jh fam 0 start;go south;go south;go east;go east;go east;go north')
                  }
             }
         case 'room':
-            roomName = data.name;
+            this.room = data.name;
             if(data.name === '帮会-练功房'){
                 if (this.userConfig.war.leader === true) {
                     this.off('Data', require('../war/leader.js'))
@@ -62,11 +56,5 @@ module.exports = async function (data) {
             break;
         default:
             break;
-        }
+    }
 };
-
-async function sleep(seconds) {
-    return new Promise(resolve => {
-        setTimeout(resolve, seconds * 1000);
-    });
-}

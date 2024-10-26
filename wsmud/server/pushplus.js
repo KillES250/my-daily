@@ -5,11 +5,10 @@ function pushMsg(msg) {
     return;
   }
 
-  axios.post('http://47.115.32.9:8080/report', {
+  axios.post('http://www.pushplus.plus/send', {
     title: '武神传说日常任务',
     token: global.pushplusToken,
     content: msg,
-    send_to: 3479000843
   });
 }
 

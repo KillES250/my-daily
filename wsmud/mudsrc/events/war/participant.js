@@ -3,19 +3,17 @@ module.exports = async function (data) {
     switch (data.type) {
         case 'start':
             this.cmd.send('score')
-            // const listeners = this.listeners('Data');
-            // console.log(`【${this.userConfig.name}】`,listeners);
             break;
         case 'dialog':
             //获取角色信息
             if (data.dialog === 'score' && data.level) {
-                this.userId = data.id
-                this.userLevel = data.level
-                this.userMaxHp = data.max_hp
-                this.cmd.send('cha')
+                this.userId = data.id;
+                this.userLevel = data.level;
+                this.userMaxHp = data.max_hp;
+                this.cmd.send('cha');
                 return;
-            // 获取技能信息,填入技能回装，拆技能。
             }
+            // 获取技能信息,填入技能回装，拆技能。
             if (data.dialog === 'skills'){
                 for (const key in data.items) {
                     if(data.items[key].enable_skill){
@@ -27,10 +25,10 @@ module.exports = async function (data) {
                 };
                 this.cmd.send('pack')
                 return;
-            //打开背包
             }
+            //打开背包
             if (data.dialog === 'pack' && !data.eq){
-                // 判定是否是拾取。不是拾取的话，获取铁剑、软猬甲、当前装备(回装)、去往武庙
+                // 判定是否是拾取。不是拾取的话，获软猬甲并装备，然后去往武庙
                 if (data.items){
                     for(const key in data.items){
                         if (data.items[key].name.includes('软猬甲')) {
@@ -49,13 +47,14 @@ module.exports = async function (data) {
                 }
             }
             break;
+            
         case 'room':
             this.room = data.name
             //上线一分钟后，帮战未开启则终止流程
             if (this.room === '扬州城-武庙' && this.war === 'none'){
                 await sleep(60);
                 if(this.war === 'none'){
-                    this.war = 'finish'
+                    this.war = 'finish';
                     this.enableSkills.forEach(enableCmd => {
                         this.cmd.send(enableCmd)  
                     });
@@ -64,6 +63,7 @@ module.exports = async function (data) {
                 }
             }
             break;
+            
         case 'items':
             //当所处房间为帮战房间时 
             if( this.room === '华山派-客厅'){
@@ -80,14 +80,19 @@ module.exports = async function (data) {
                    }
             }
             break;
+            
         case 'status':
             // 多重判定跟随眩晕转火
             if(this.room === '华山派-客厅' && this.war === 'start' && data.action === 'add' && data.sid === 'faint'){
-                this.cmd.send(`kill ${data.id};kill ${data.id}`)
+                this.cmd.send(`kill ${data.id};kill ${data.id}`,false)
             }
             break;
+            
+        // 死亡复活
         case 'die':
-            // 死亡复活
+            if (data.relive) {
+                return;
+            }
             this.cmd.send('relive')
             await sleep(3);
             this.cmd.send(this.gameInfo.war.way);
@@ -97,10 +102,6 @@ module.exports = async function (data) {
             if(this.room === '华山派-客厅' && data.name.includes('独孤败天')){
                 this.warNpcId[0].id = data.id;
             }
-            // 新增尸体的时候拾取
-            // if (this.room === '华山派-客厅' && data.name.includes('的尸体') && !data.p){
-            //     this.cmd.send(`get all form ${data.id}`)
-            // }
             break;
         case 'msg':
             if(data.ch === 'pty'){
@@ -116,6 +117,7 @@ module.exports = async function (data) {
                 }
             }
             break;
+            
         case 'tip':
             if(data.data.includes('加油，加油！！') || data.data.includes('你要捡什么东西？') || data.data.includes('说：')){
                 return;                
@@ -124,7 +126,6 @@ module.exports = async function (data) {
                 this.cmd.send('relive')
                 return;
             }
-            console.log(data.data);
             break;
         default:
             break;

@@ -10,8 +10,6 @@ module.exports = async function (data) {
         case 'start':
             this.off('Data',require('../autopfm/autopfm.js'));
             this.on('Data',require('../autopfm/autopfm.js'));
-            const listeners = this.listeners('Data');
-            console.log(`【${this.userConfig.name}】`,listeners);
             this.cmd.send('score');
             break;
             
@@ -37,6 +35,7 @@ module.exports = async function (data) {
                 this.skillsBanList = this.userSkills.filter(skill => !skillsForGangleader.includes(skill));
                 this.cmd.send('go south');
                 this.cmd.send('perform force.tu');
+                // 加入一个等待参者准备的等待
                 await sleep(15);
                 this.cmd.send('party fam HUASHAN');
             }
@@ -56,84 +55,121 @@ module.exports = async function (data) {
                 this.cmd.send('relive')
                 return;
             }
-            console.log(`【${this.userConfig.name}】`,data.data);
             if(data.data.includes('正在进攻别的门派') || data.data.includes('帮派活跃度不够，无法开启门派战。')){
                 this.cmd.send('pty 无法开启帮战');
             }
             break;
             
         case 'msg':
+            // 此处的命令可以被所有人调用
+            // 不想被调用则在if条件中添加data.name或者data.uid加以限制
             if(data.ch === 'pty'){
+                // 开始判定()
                 if(data.content.includes('即刻起开始进攻')){
                     this.war = 'start';
+                    // 设置一个号令计时器
                     this.timerOfHaoLing = setInterval(() => {
-                        this.haoLingNum += 1;
-                        if(this.haoLingNum === 5){
-                            this.cmd.send(`pty 开始击杀`)
+                        if (this.haoLingNum === 5){
+                            this.cmd.send('pty 第5波号令已刷新,开始击杀!');
                         }
+                        this.cmd.send(`pty 第${this.haoLingNum}波号令已刷新!`)
+                        this.haoLingNum ++;
                     }, 300000); // 5分钟为300000毫秒
                     this.cmd.send(this.gameInfo.war.way);
+                    return;
                 }
-                else if(data.content.includes('最终胜利') || data.content.includes('点子扎手') || data.content.includes('无法开启帮战')){
+                // 结束流程破判定
+                if(data.content.includes('最终胜利') || data.content.includes('点子扎手') || data.content.includes('无法开启帮战')){
                     this.war = 'finish';
+                    // 清除号令计时器
                     if (this.timerOfHaoLing) {
                         clearInterval(this.timerOfHaoLing);
                     }
-                    await sleep(6);
+                    await sleep(5);
                     this.emit('Data',{type:'end'}); 
+                    return;
                 }
-                else if(data.content.includes('开始击杀')){
+                // 开始击杀
+                if(data.content.includes('开始击杀')){
+                    // 清空banlist技能列表，开启所有技能出招
                     this.skillsBanList = []
+                    // 将击杀状态设为<可击杀>
                     this.startKill = true;
+                    // 获取最后一个不为空的id下杀，确保掌门不被提前击杀
                     const killId = findLastId(this.warNpcId)
                     this.cmd.send(`kill ${killId}`)
+                    return;
+                }
+                // 一组pty调用手动转火的指令
+                if(data.content.includes('切换掌门') && this.warNpcId[1].id){
+                    this.cmd.send(`kill ${this.warNpcId[1].id}`)
+                    return;
+                }
+                if(data.content.includes('切换大长老') && this.warNpcId[2].id){
+                    this.cmd.send(`kill ${this.warNpcId[2].id}`)
+                    return;
+                }
+                if(data.content.includes('切换二长老') && this.warNpcId[3].id){
+                    this.cmd.send(`kill ${this.warNpcId[3].id}`)
+                    return;
                 }
             }
             break;
             
         case 'items':
             if(this.room === '华山派-客厅'){
+                // 如果独孤败天败天id存在，则下杀独孤败天(处理意外死亡返回)
                 if (this.warNpcId[0].id) {
                     this.cmd.send(`kill ${this.warNpcId[0].id}`);
+                    return;
                 } 
-                else if (this.warNpcId[1].id){
-                    this.cmd.send(`kill ${this.warNpcId[1].id};kill ${this.warNpcId[1].id}`);
+                // 否则 掌门id存在，则连续下杀两次掌门
+                if (this.warNpcId[1].id){
+                    this.cmd.send(`kill ${this.warNpcId[1].id};kill ${this.warNpcId[1].id}`,false);
+                    return;
                 } 
-                else if (!this.warNpcId[1].id){
+                // 否则 掌门id为空的情况下，开始获取全部id赋值
+                if (!this.warNpcId[1].id){
                     for(const key in data.items){
                         const item = data.items[key];
-                        if(item.id && item.name.includes('岳不群')){
+                        // 获取 岳不群的id
+                        if(item.id && !item.p && item.name.includes('岳不群')){
                             this.warNpcId[1].id = item.id;
-                        }else if (item.id && item.name.includes('华山派长老')){
+                        }
+                        // 获取长老id
+                        else if (item.id && !item.p && item.name.includes('华山派长老')){
+                            // 如果 长老1_ID为空
                             if(!this.warNpcId[2].id){
+                                // 获取长老1_ID
                                 this.warNpcId[2].id = item.id;
-                                this.cmd.send(`kill ${this.warNpcId[2].id}`);
                             }else{
+                                // 获取长老2_ID
                                 this.warNpcId[3].id = item.id;
                             }
                         }
                     }
+                    // 循环结束，对长老1_进行下杀
                     this.cmd.send(`kill ${this.warNpcId[2].id}`)
                 }
             }
             break;
 
         case 'itemadd':
+            // 当房间内出现独孤败天时，获取其id
             if(this.room === '华山派-客厅' && data.name.includes('独孤败天') && !data.p){
                 this.warNpcId[0].id = data.id;
+                // 执行psxk，等待cmds返回
                 this.cmd.send(this.gameInfo.week.way.yaoshen);
             }
-            // if (this.room === '华山派-客厅' && data.name.includes('的尸体') && !data.p){
-            //     this.cmd.send(`get all form ${data.id}`)
-            // }
             break;
         
         case 'itemremove':
             if(this.room === '华山派-客厅'){
-                //forEach会改变原数组
                 this.warNpcId.forEach(npc => {
                     if(npc.id === data.id){
+                        //forEach会改变原数组
                         npc.id = null;
+                        // 重新寻找数组中最后一个不为空的id进行下杀，确保掌门最后一个是死亡
                         const killId = findLastId(this.warNpcId)
                         this.cmd.send(`kill ${killId}`)
                     }else{
@@ -144,9 +180,10 @@ module.exports = async function (data) {
             break;
         
         case 'cmds':
+            // cmds的返回。请确保工具人至少有一个破碎虚空定位到古大陆-墓园
             const muyuan = data.items.find(way => way.name.includes('传送到古大陆-墓园'));
+            // 该返回包含.cmd[]元素
             if(muyuan){
-                skillsForGangleader.push('force.ding');
                 this.cmd.send(muyuan.cmd)
             }
             break;
@@ -156,8 +193,11 @@ module.exports = async function (data) {
             if(this.room === '古大陆-墓园'){
                 while (true) {
                     await sleep(1);
+                    //每秒循环一次，直到自身状态没有绿色的忙乱震慑为止
                     if(!this.userStatus.has('bss')){
+                        // 切换回修罗刀
                         this.cmd.send('enable blade xiuluodao');
+                        // 将<开始击杀>设置为不可执行状态
                         this.startKill === false;
                         this.cmd.send(this.gameInfo.war.way);
                         break;
@@ -167,7 +207,9 @@ module.exports = async function (data) {
             break;
                
         case 'sc':
+            // 伤害返回解析
             if (this.room === '华山派-客厅') {
+                // 遍历warNpcId，找到对应id的npc，更新其血量百分比
                 for (const npc of this.warNpcId) {
                     if (npc.id === data.id) {
                         const hpPer = data.hp / npc.maxHp;
@@ -179,16 +221,23 @@ module.exports = async function (data) {
             break;
             
         case 'shift':
-                if (this.startKill === false){
-                    this.cmd.send(`kill ${data.id};kill ${data.id}`, false);
-                    this.cmd.send('perform blade.xiu;perform dodge.yao');
-                    const nextId = getNextId(data.id, this.warNpcId);
-                    this.cmd.send(`kill ${nextId}`);
-                }
+            // 实例创建时会建立一个血量监控，目标血量低于50%时，发出shift事件
+            // 事件触发时，如果击杀未开启
+            if (this.startKill === false){
+                // 跳转到目标
+                this.cmd.send(`kill ${data.id};kill ${data.id}`, false);
+                // 施放修罗清空增伤层数,然后化蝶
+                this.cmd.send('perform blade.xiu;perform dodge.yao');
+                // 寻找帮战npc顺序中下一个不为空的id进行下杀
+                const nextId = getNextId(data.id, this.warNpcId);
+                this.cmd.send(`kill ${nextId}`);
+            }
             break;
             
         case 'dispfm':
+            // 当检测到施放化蝶后
             if(data.id === 'dodge.yao'){
+                // 建立一个递归函数，每0.5秒执行一次监测,当冷却技能菜单中不包含<枯木决>，则施放<枯木诀>并跳出。
                 const pfmtuloop = () => {
                     if (!this.cd.has('force.tu')){
                         this.cmd.send('perform force.tu');
@@ -196,6 +245,7 @@ module.exports = async function (data) {
                     }
                     setTimeout(pfmtuloop, 500);
                 }
+                // 立即执行
                 pfmtuloop();
             }
             break;
