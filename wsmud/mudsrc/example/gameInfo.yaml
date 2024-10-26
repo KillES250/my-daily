@@ -219,7 +219,7 @@ fbWay:
   财主家: cr yz/cuifu/caizhu 1 0;go north;go north;go east;go west;go west
   流氓巷: cr yz/lmw/xiangzi1 0 0;go east;go north;go south;go east;go east
   丽春院: cr yz/lcy/dating 0 0;go up;go east;go west;go west;go enter
-  神龙教: cr bj/shenlong/haitan 0 0;go north;kan bush;go north;go north;go north;go south;go east;go east;go north;go north;go north
+  神龙教: cr bj/shenlong/haitan 0 0;go north;go north;go north;go north;go south;go east;go east;go north;go north;go north
   温府: cr cd/wen/damen 0 0;go north;go northeast;go east;go west;go north;go east;go west;go northwest;go southwest;go west;go east;go south;go west;go east;go north;go northeast;go north;tiao zhuang;go north
   五毒教: cr cd/wudu/damen 0 0;go east;go south;go west;go east;go east;go west;go south;go north;go north;go east;go east;go east;go north;go west
   恒山: cr wuyue/hengshan/daziling 0 0;go northup;go northwest;go northup;go southdown;go northwest;go northup;go northup;go north;go north;go south;go west;go north;go south;go east;go east;go north
