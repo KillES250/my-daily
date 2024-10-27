@@ -69,11 +69,11 @@ module.exports = async function (data) {
                     this.war = 'start';
                     // 设置一个号令计时器
                     this.timerOfHaoLing = setInterval(() => {
+                        ++this.haoLingNum;
                         if (this.haoLingNum === 5){
                             this.cmd.send('pty 第5波号令已刷新,开始击杀!');
                         }
                         this.cmd.send(`pty 第${this.haoLingNum}波号令已刷新!`)
-                        this.haoLingNum ++;
                     }, 300000); // 5分钟为300000毫秒
                     this.cmd.send(this.gameInfo.war.way);
                     return;

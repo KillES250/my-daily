@@ -148,6 +148,7 @@ module.exports = async function (data) {
                             this.cmd.send('enable force changshengjue;perform force.zhen')
                             await changeSkills('add')
                             this.cmd.send('enable parry yihuajiemu')
+                            this.cmd.send(`enable parry ${this.userId}`)
                         }
                         nextStep('yaoshen')
                     }
