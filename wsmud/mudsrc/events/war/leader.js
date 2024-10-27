@@ -23,6 +23,7 @@ module.exports = async function (data) {
                 this.warMode = initWarmode();
                 if (this.warMode === 'r'){
                     this.cmd.send('enable blade yuanyuewandao');
+                    skillsForGangleader.push('force.tu');
                     this.startKill = true;
                 }else if (this.warMode === 'o'){
                     this.cmd.send('enable blade xiuluodao');
