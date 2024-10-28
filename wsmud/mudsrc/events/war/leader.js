@@ -201,7 +201,7 @@ module.exports = async function (data) {
                         // 切换回修罗刀
                         this.cmd.send('enable blade xiuluodao');
                         // 将<开始击杀>设置为不可执行状态
-                        this.startKill === false;
+                        this.startKill = false;
                         this.cmd.send(this.gameInfo.war.way);
                         break;
                     }
