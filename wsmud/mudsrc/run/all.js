@@ -30,6 +30,7 @@ async function runall() {
             const weektime = configs.weektime;
             createScheduledTasks(weektime, 'weekTask', week.runweek);
         }
+        if (configs.
         console.log('当前已经创建的任务:');
         allJobs.forEach((job, index) => {
             console.log(`任务${index + 1}: ${job.nextInvocation()}`);
