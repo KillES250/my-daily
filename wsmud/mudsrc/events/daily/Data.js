@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 const logger = require(path.resolve(__dirname, '../../../server/logger'));
 
@@ -13,6 +14,14 @@ module.exports = async function (data) {
             this.cmd.send('tasks');
             this.cmd.send('stopstate');
             this.cmd.send(this.userConfig.loginCommand);
+            // 测试用代码
+                const logFilePath = path.join(__dirname, 'bosslogs', `${this.userConfig.name}BOSS.log`);
+                const dir = path.dirname(logFilePath);
+                if (!fs.existsSync(dir)) {
+                    fs.mkdirSync(dir, { recursive: true });
+                }
+                fs.writeFileSync(logFilePath, '');
+            // 测试用代码
             break;
         case 'loginerror':
             logger.error(`「${this.userConfig.name}」登录失败`);
@@ -20,7 +29,7 @@ module.exports = async function (data) {
             break;
         case 'dialog':
             if(data.dialog === 'tasks'&& !data.id){
-                const result = getTaskList(data,this.allTaskList,this.userConfig.boss);
+                const result = getTaskList(data,this.allTaskList,this.userConfig.redboss);
                 this.taskList = result.taskList;
                 this.userJl = result.userJl;
                 if(this.taskList.length > 0){

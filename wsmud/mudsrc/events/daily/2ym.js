@@ -143,8 +143,7 @@ module.exports = function (data) {
             
                 this.cmd.send(`ask2 ${this.huntTaskInfo.taskerId};ask1 ${this.huntTaskInfo.taskerId}`);
             }
-            
-            if (data.data.includes('最近没有在逃的逃犯了')) {
+            if (/最近没有在逃的逃犯了|你等一会再来吧。/.test(data.data)) {
                 logger.info(`「${this.userConfig.name}」追捕任务已完成`);
                 this.emit('Data',{type:'next'});
             }

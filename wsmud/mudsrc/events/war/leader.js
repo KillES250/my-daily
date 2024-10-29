@@ -3,7 +3,7 @@ const path = require('path');
 const yaml = require('js-yaml');
 const time = yaml.load(fs.readFileSync(path.resolve(__dirname, '../../../userconfig/userconfig.yaml')));
 
-var skillsForGangleader = ['force.xin','dodge.lingbo'];
+var skillsForGangleader = ['force.xin'];
 
 module.exports = async function (data) {
     switch (data.type) {

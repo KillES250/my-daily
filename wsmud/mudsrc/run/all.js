@@ -9,6 +9,7 @@ const week = require('./week.js');
 const war = require('./war.js');
 
 const allJobs = [];
+
 async function runall() {
     try {
         const data = await fs.promises.readFile(userconfig, 'utf8');
@@ -30,7 +31,8 @@ async function runall() {
             const weektime = configs.weektime;
             createScheduledTasks(weektime, 'weekTask', week.runweek);
         }
-        if (configs.
+        // 如果擂台选项为true
+        // 这个位置插入一个iron的规定表达式的定时函数
         console.log('当前已经创建的任务:');
         allJobs.forEach((job, index) => {
             console.log(`任务${index + 1}: ${job.nextInvocation()}`);

@@ -51,6 +51,10 @@ module.exports = class War extends Socket {
     hpPerjk() {
         this.intervalId = setInterval(() => {
             for (const npc of this.warNpcId) {
+                if (npc.id !== null && npc.maxHp === 90000000  && npc.hpPer < 0.99) {
+                    this.emit('Data', { type: 'shift', id: 'red' });
+                    return;
+                }
                 if (npc.id !== null && npc.hpPer < 0.5) {
                     this.emit('Data', { type: 'shift', id: npc.id });
                     return;

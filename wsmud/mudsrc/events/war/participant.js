@@ -14,7 +14,7 @@ module.exports = async function (data) {
                 return;
             }
             // 获取技能信息,填入技能回装，拆技能。
-            if (data.dialog === 'skills'){
+            if (data.dialog === 'skills' && !data.id){
                 for (const key in data.items) {
                     if(data.items[key].enable_skill){
                         // 回装技能数组

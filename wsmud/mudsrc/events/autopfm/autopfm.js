@@ -5,7 +5,6 @@ const buffList = [
     { name:'入魔', id:'blade.wu'},
     { name:'嗜血', id:'blade.shi'},
     { name:'剑雨', id:'sword.yu'},
-    { name:'剑意', id:'sword.yi'},
     { name:'剑心', id:'force.xin'},
     { name:'九阳护体', id:'force.power'},
     { name:'混沌', id:'force.busi'},

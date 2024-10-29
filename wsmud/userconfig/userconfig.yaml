@@ -10,7 +10,7 @@ roles:
       Ax0bpDpbqSIrMxe5tn/HA967OfSzftqDa6W8VSEq0R8CsNaHZGJslXTXmYph28Y8MLh6tTy4mbKSl+E+pre8pA==
       1q6w456e9a7
     canlogin: true
-    redboss: null
+    redboss: false
     leitai: false
     dungeons:
       first: false
@@ -34,7 +34,7 @@ roles:
       d+RwJYxJ4BSg2qHSv2aImphebYX+exjC7SfV8W79qvz+GuRr6DmqEUXjSSaqH+oCKVsjjbVMWexrocBGWOdg2w==
       itgb2133989
     canlogin: true
-    redboss: null
+    redboss: true
     leitai: false
     dungeons:
       first: true
@@ -57,7 +57,7 @@ roles:
       yUr+Lo3BpIWQqpEdoo0wfXnJ/sVdjJHF6lPu8dma16OXumUM6Uk7JArYkXZtL7pkIB1mMmese4YzTN/tQv+TFw==
       79vb2beb087
     canlogin: true
-    redboss: null
+    redboss: true
     leitai: false
     dungeons:
       first: false
@@ -80,7 +80,7 @@ roles:
       yUr+Lo3BpIWQqpEdoo0wfXnJ/sVdjJHF6lPu8dma16OXumUM6Uk7JArYkXZtL7pkIB1mMmese4YzTN/tQv+TFw==
       sflb64b20c0
     canlogin: true
-    redboss: null
+    redboss: false
     leitai: false
     dungeons:
       first: false
@@ -103,7 +103,7 @@ roles:
       feJnMzlbfMTntu7dCT3OjBUBuZZd4FQoruw/8/bl2RP0UUKN5XZdP19wfts+McNQRgCEuTBouZnPjNVXxAkGVA==
       wk3k32d39ab
     canlogin: true
-    redboss: null
+    redboss: false
     leitai: false
     dungeons:
       first: false
@@ -149,7 +149,7 @@ roles:
       fP+dcr4fByMBGEWKb6bBsIZCBokkBUI6+zPIIUSHbsHxVYEnFfaOViQFwYHa0V2qb5mtYie6QmYkz5d5yJxl4g==
       p23219f9c9b
     canlogin: true
-    redboss: null
+    redboss: true
     leitai: false
     dungeons:
       first: true
@@ -196,7 +196,7 @@ roles:
       HcGoyxMrheQ5xXuGKFKQ7RGDm+UgeH7WYs5CSWKbn9dBuJ43T3tQsIOoYxLbIvizd0zFotNrHv15k9mEMkCGZQ==
       b23438bffc3
     canlogin: true
-    redboss: null
+    redboss: false
     leitai: false
     dungeons:
       first: false
@@ -219,7 +219,7 @@ roles:
       HcGoyxMrheQ5xXuGKFKQ7RGDm+UgeH7WYs5CSWKbn9dBuJ43T3tQsIOoYxLbIvizd0zFotNrHv15k9mEMkCGZQ==
       dhe9566853a
     canlogin: true
-    redboss: null
+    redboss: false
     leitai: false
     dungeons:
       first: false
@@ -267,7 +267,7 @@ roles:
       brt62C5FUOUSzStdnZOe9839z1ofkJI31yz+iSZw4jFf/GsPeXTaEudf0sCJ9axfmiZZ7lEV55+zlfmXyWMhtw==
       f14b562e68e
     canlogin: true
-    redboss: null
+    redboss: false
     leitai: false
     dungeons:
       first: false

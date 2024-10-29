@@ -7,7 +7,6 @@ const tipback = {
     specPath: [
         { id: 'yz/lcy/fang2', act: 'tui tai' },
         { id: 'bj/shenlong/lin1', act: 'kan bush' },
-        { id: 'cd/wen/damen', act: 'climb tree' },
         { id: 'cd/wen/tingzi', act: 'tiao zhuang' },
         { id: 'cd/yunmeng/weiqiang', act: 'jump wei' },
         { id: 'cd/yunmeng/zhaoze4', act: 'kan lu' },
@@ -18,7 +17,6 @@ const tipback = {
         { id: 'heimuya/up3', act: 'push xiazi' },
         { id: 'heimuya/houdian', act: 'circle wan' },
         { id: 'heimuya/midao1', act: 'fire' },
-        { id: 'lingjiu/jian', act: 'zou tiesuo' },
     ],
 
     // 失败提示信息正则表达式

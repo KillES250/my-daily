@@ -1,14 +1,16 @@
+const fs = require('fs');
 const path = require('path');
 const logger = require(path.resolve(__dirname, '../../../server/logger'));
 const { tipback } = require('../../example/tipback.js');
-
 
 let bossFightTestNum = 0;
 let lunjiantop = false;
 let yihuamgong = false;
 let skillsForRedBoss = ['blade.xue'];
+let delpath = true;
 
 module.exports = async function (data) {
+    const logFilePath = path.join(__dirname, 'bosslogs', `${this.userConfig.name}BOSS.log`);
     switch (data.type) {
         case 'start':
             this.cmd.send('stopstate');
@@ -37,6 +39,7 @@ module.exports = async function (data) {
         case 'room':
             this.room = data.name;
             this.roomPath = data.path;
+            fs.appendFileSync(logFilePath,`${this.room}\n`);
             // 这里会跳转到item中拿到为推床次数做赋值
             if(this.room === '移花宫-邀月宫(副本区域)' || this.room === '移花宫-涟星宫(副本区域)'){
                 this.cmd.send('look hua')
@@ -87,17 +90,48 @@ module.exports = async function (data) {
                 如果是被boss击杀，则会先返回战斗结束end，天师符3秒站立起来后，会返回新的items，并且从items返回处继续跳转流程
                 【战斗结束————> 买天师符 ————> 复活 ————> 获得新的items返回(boss存在)】这种情况不会在这里得到处理。
             */
-            console.log(data);
             if (data.end && this.relive === true){
+                if(this.bossId){
+                    //清空路径
+                    this.fbPath = [];
+                    this.cmd.send('tm 调用击杀')
+                    break;
+                } 
+                // 删除路径逻辑
+                // 如果是进入房间堵路，则已经删除过一次上次运动的轨迹了，【主动】叫杀前此变量为false，战斗结束后则不删除路径，继续执行下一次路径
+                // 删+下
+                
+                // 否则为进入房间【被叫杀】，进入房间后还未删除上一次的路径，变量会默认为ture，
+                // 此时战斗结束后则会删除上一次的行动轨迹(无需重置)跳转至下方的下一次路径判定
+                // 删+下
+                if (delpath === true){
+                    this.fbPath.shift()
+                } else {
+                    // 否则重置删除路径标记
+                    delpath = true;
+                }
+
+                // 及其的特殊处理主动被叫杀后需要解密的房间(二联特殊处理)
+                if (this.roomPath === 'bj/shenlong/lin1'){
+                    this.cmd.send('kan bush');
+                    // 这里会从tip处等待下一次路径的处理
+                    break;
+                } 
+                if (this.roomPath === 'cd/yunmeng/zhaoze4'){
+                    this.cmd.send('kan lu');
+                    // 这里会从tip处等待下一次路径的处理
+                    break;
+                }
+                
                 // 添加一个循环判定，确保items返回被解析完成后再进行下一步动作
                 while (this.itemsResult === false) {
                     await sleep(1);
                     if(this.itemsResult === true){
-                        this.cmd.send('tm 调用当前路径判定');
+                        this.cmd.send('tm 调用下次路径判定');
                         break;
                     }
                 }
-                this.cmd.send('tm 调用当前路径判定');
+                this.cmd.send('tm 调用下次路径判定');
             }
             break;
         
@@ -112,9 +146,10 @@ module.exports = async function (data) {
             if(this.room.includes('副本区域')){
                 this.npclist = [];
                 for (const item of data.items) {
-                    if (item && !item.p) {
+                    if (item && !item.p && item.hp) {
                         if(item.name.includes(this.bossName)){
                             this.bossId = item.id;
+                            this.fbPath = [];
                         } else {
                             this.npclist.push({name:item.name, id:item.id})
                         }
@@ -122,7 +157,6 @@ module.exports = async function (data) {
                 }
                 // 解析完毕，更改解析状态
                 this.itemsResult = true;
-                console.log(this.itemsResult)
                 // 如果处于战斗会等待战斗结束跳转到上面的combat-end处进行处理
                 if(this.isCombat === false){
                     this.cmd.send('tm 调用当前路径判定');
@@ -139,11 +173,48 @@ module.exports = async function (data) {
             } 
             // boss不存在
             else {
+
+                /* ——————————————位移部分————————————*/
+                // 温府大门立即处理 (在删除路径之前)
+                if(this.roomPath === 'cd/wen/damen'){
+                    this.cmd.send('climb tree');
+                        //这里直接跳出，等待items信息返回    
+                    break;
+                }
+                // 移花宫迷宫判定(在删除路径之前)
+                if(this.roomPath === 'huashan/yihua/yihua0' && yihuamgong === false){
+                    this.cmd.send('go south');
+                        // 这里循环被跳出后来到山道，等待 山道 的items的返回继续
+                    break;
+                }
+                
+                // 防止大门被立即调用(在删除路径之前)
+                if(this.roomPath === 'huashan/yihua/damen'){
+                    await sleep(1);
+                    this.cmd.send('tm 调用下次路径判定')
+                    break;
+                }
+                // 缥缈峰位移判定(在删除路径之前)
+                if(this.roomPath === 'lingjiu/jian'){
+                    this.cmd.send('zou tiesuo');
+                    // 这里直接跳出，等待items成功或者tip失败的返回继续
+                    break;
+                }
+                
+                // 华山论剑台只有在未去过华山绝顶的情况下才发送解密信息(在删除路径之前)
+                if(this.roomPath === 'huashan/lunjian/tai' && lunjiantop === false){
+                    this.cmd.send('jump bi')
+                    // 这里直接跳出，等待items返回继续
+                    break;
+                }
+                /* ——————————————位移部分————————————*/
+                
                 // 删除上一步(已经成功执行得到正确返回的)路径
                 this.fbPath.shift()
                 // 重置items解析状态
                 this.itemsResult = false;
                 
+                /* ——————————————无位移部分————————————*/
                 // 地主家判定
                 // 可能出现没打到钥匙，员外还在这里就走不到西厢房，却收到没有钥匙的开门提示，提前结束副本
                 if(this.roomPath === 'yz/cuifu/houyuan'){
@@ -156,21 +227,6 @@ module.exports = async function (data) {
                         break;
                     }
                 }
-                
-                // 移花宫迷宫判定
-                if(this.roomPath === 'huashan/yihua/yihua0' && yihuamgong === false){
-                        this.cmd.send('go south');
-                         // 这里循环被跳出后来到山道，等待 山道 的items的返回继续
-                        break;
-                }
-
-
-                // 防止大门被立即调用
-                if(this.roomPath === 'huashan/yihua/damen'){
-                    await sleep(1);
-                    this.cmd.send('tm 调用下次路径判定')
-                    break;
-                }
                 //宫主房间判定(这里可能存在卡主的情况，暂不调整)
                 if(this.roomPath === 'huashan/yihua/woshi'){
                     this.cmd.send('pushstart bed')
@@ -179,20 +235,13 @@ module.exports = async function (data) {
                     // 这里直接跳出等待tip返回继续
                     break;
                 }
-                
                 // 燕子坞牌位判定
                 if(this.roomPath === 'murong/houting'){
                     this.cmd.send(`${'bai pai;'.repeat(3)}`)
                     // 这里直接诶跳出，等待tip返回继续
                     break;
                 }
-                
-                // 华山论剑台只有在未去过华山绝顶的情况下才发送解密信息
-                if(this.roomPath === 'huashan/lunjian/tai' && lunjiantop === false){
-                    this.cmd.send('jump bi')
-                    // 这里直接跳出，等待items返回继续
-                    break;
-                }
+                /* ——————————————无位移部分————————————*/
                 
                 // 其他特殊房间的解密动作
                 const decrypt = tipback.specPath.find(item => item.id === this.roomPath);
@@ -217,11 +266,8 @@ module.exports = async function (data) {
         
         case 'readyForKill':
             // 等待技能冷却
-            while (this.cd.size > 0) {
-                await sleep(1.5);
-            }
-            // 如果是探龙模式
             if(this.userConfig.redboss === false){
+                await sleep(60);
                 // 清空技能黑名单
                 this.skillsBanList = [];
                 // 将血海加入黑名单
@@ -256,6 +302,14 @@ module.exports = async function (data) {
             if (data.data.includes('说：')) {
                 break;
             }
+            // 彻底卡主代码
+            if(data.data.includes('这个方向没有出路。')){
+                logger.warning(`${this.userConfig.name}，彻底卡住，即将退出副本流程`);
+                this.fbPath = []
+                this.cmd.send('cr over')
+                this.cmd.send('tm 调用结束');
+            }
+            fs.appendFileSync(logFilePath, `${data.data}\n`);
             // 黑木崖密道二次判定
             if(data.data === '你点燃了火折，发现墙上有个铁环，似乎是个机关。'){
                 this.cmd.send('push')
@@ -272,6 +326,9 @@ module.exports = async function (data) {
             }
             // 堵路的返回
             if(tipback.blocking.test(data.data)){
+                // 不允许主动删除路径
+                delpath = false;
+                this.itemsResult = true;
                 this.npclist.forEach(item => {
                     this.cmd.send(`kill ${item.id}`)
                 });
@@ -286,7 +343,7 @@ module.exports = async function (data) {
             }
             
             // 探龙成功继续调用击杀流程
-            if(data.data.includes('偷到了')){
+            if(data.data.includes('偷到')){
                 this.cmd.send('tm 调用击杀');
                 break;
             }
@@ -320,6 +377,7 @@ module.exports = async function (data) {
             if(this.bossId && this.bossId === data.id){
                 // 发现boss的时候路径被全部删除，
                 // 这里赋值为空，会在战斗结束后调用路径，跳转至路径判定(路径为0处)，然后结束副本
+                this.fbPath = [];
                 this.bossId = null;
                 return
             }
