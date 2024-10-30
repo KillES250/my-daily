@@ -513,3 +513,26 @@ roles:
       yunbiao: false
       tazhu: null
       yaoshen: null
+  - name: 随风三六
+    server: ws://120.77.213.218:25631
+    token: >-
+      97c5d237fd8049aab2f7269d27b23875
+      5+IUALk3fAASs241TRfc5ey38o7K2Xe76nkRMoixCn3KYCrEQN63vyaInM0PwtKTYHdN9/xM3a1hwjIYvG/4jg==
+      6fnj8f19ec1
+    canlogin: true
+    redboss: false
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr zsd/damen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
