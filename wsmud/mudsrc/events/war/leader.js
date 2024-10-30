@@ -3,7 +3,7 @@ const path = require('path');
 const yaml = require('js-yaml');
 const time = yaml.load(fs.readFileSync(path.resolve(__dirname, '../../../userconfig/userconfig.yaml')));
 
-var skillsForGangleader = ['force.xin'];
+var skillsForGangleader = ['force.xin','dodge.lingbo'];
 
 module.exports = async function (data) {
     switch (data.type) {
@@ -23,7 +23,6 @@ module.exports = async function (data) {
                 this.warMode = initWarmode();
                 if (this.warMode === 'r'){
                     this.cmd.send('enable blade yuanyuewandao');
-                    // skillsForGangleader.push('force.tu');
                     this.startKill = true;
                 }else if (this.warMode === 'o'){
                     this.cmd.send('enable blade xiuluodao');
@@ -70,7 +69,7 @@ module.exports = async function (data) {
                     this.war = 'start';
                     // 设置一个号令计时器
                     this.timerOfHaoLing = setInterval(() => {
-                        ++this.haoLingNum;
+                    	++this.haoLingNum;
                         if (this.haoLingNum === 5){
                             this.cmd.send('pty 第5波号令已刷新,开始击杀!');
                         }
@@ -157,9 +156,7 @@ module.exports = async function (data) {
 
         case 'itemadd':
             // 当房间内出现独孤败天时，获取其id
-            // {"type":"itemadd",id:"hmnme4a86d1",name:"<ord>上古剑神</ord> 独孤败天",mp:20000000,hp:90000000,max_mp:20000000,max_hp:90000000}
-            // {"type":"itemadd",id:"39d1e4a8736",name:"<wht>独孤败天的尸体</wht>"}
-            if(this.room === '华山派-客厅' && data.name === ("<ord>上古剑神</ord> 独孤败天") && !data.p){
+            if(this.room === '华山派-客厅' && data.name.includes('独孤败天') && !data.p){
                 this.warNpcId[0].id = data.id;
                 // 执行psxk，等待cmds返回
                 this.cmd.send(this.gameInfo.week.way.yaoshen);
@@ -226,11 +223,7 @@ module.exports = async function (data) {
         case 'shift':
             // 实例创建时会建立一个血量监控，目标血量低于50%时，发出shift事件
             // 事件触发时，如果击杀未开启
-            if (this.startKill === false && !this.userStatus.has('busy')){
-                if (data.id === 'red'){
-                    this.cmd.send('perform force.tu;perform dodge.yao');
-                    return;
-                }
+            if (this.startKill === false){
                 // 跳转到目标
                 this.cmd.send(`kill ${data.id};kill ${data.id}`, false);
                 // 施放修罗清空增伤层数,然后化蝶
@@ -243,7 +236,7 @@ module.exports = async function (data) {
             
         case 'dispfm':
             // 当检测到施放化蝶后
-            if(data.id === 'dodge.yao' && !this.warNpcId[1].id){
+            if(data.id === 'dodge.yao'){
                 // 建立一个递归函数，每0.5秒执行一次监测,当冷却技能菜单中不包含<枯木决>，则施放<枯木诀>并跳出。
                 const pfmtuloop = () => {
                     if (!this.cd.has('force.tu')){
