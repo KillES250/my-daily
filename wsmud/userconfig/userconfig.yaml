@@ -536,3 +536,233 @@ roles:
       yunbiao: true
       tazhu: false
       yaoshen: null
+  - name: 梁山一号
+    server: ws://120.77.213.218:25631
+    token: >-
+      31487644024747c0acbee282ecf88745
+      vOyg+j/z8PLJk2EswCduQHehB2U9NEdv7Ho2+HxT92cjjjU1HFgORdk7674iUg3fvWe6koQxqheeDYNr5c5HyQ==
+      2t3bbad944a
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 梁山二号
+    server: ws://120.77.213.218:25631
+    token: >-
+      31487644024747c0acbee282ecf88745
+      vOyg+j/z8PLJk2EswCduQHehB2U9NEdv7Ho2+HxT92cjjjU1HFgORdk7674iUg3fvWe6koQxqheeDYNr5c5HyQ==
+      3s0zbad92b9
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 梁山三号
+    server: ws://120.77.213.218:25631
+    token: >-
+      31487644024747c0acbee282ecf88745
+      vOyg+j/z8PLJk2EswCduQHehB2U9NEdv7Ho2+HxT92cjjjU1HFgORdk7674iUg3fvWe6koQxqheeDYNr5c5HyQ==
+      6z61bad92f1
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 梁山四号
+    server: ws://120.77.213.218:25631
+    token: >-
+      31487644024747c0acbee282ecf88745
+      vOyg+j/z8PLJk2EswCduQHehB2U9NEdv7Ho2+HxT92cjjjU1HFgORdk7674iUg3fvWe6koQxqheeDYNr5c5HyQ==
+      7nkrbad939a
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 梁山五号
+    server: ws://120.77.213.218:25631
+    token: >-
+      31487644024747c0acbee282ecf88745
+      vOyg+j/z8PLJk2EswCduQHehB2U9NEdv7Ho2+HxT92cjjjU1HFgORdk7674iUg3fvWe6koQxqheeDYNr5c5HyQ==
+      7wicbad926f
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 梁山六号
+    server: ws://120.77.213.218:25631
+    token: >-
+      31487644024747c0acbee282ecf88745
+      vOyg+j/z8PLJk2EswCduQHehB2U9NEdv7Ho2+HxT92cjjjU1HFgORdk7674iUg3fvWe6koQxqheeDYNr5c5HyQ==
+      bsn2bad93db
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 梁山七号
+    server: ws://120.77.213.218:25631
+    token: >-
+      31487644024747c0acbee282ecf88745
+      vOyg+j/z8PLJk2EswCduQHehB2U9NEdv7Ho2+HxT92cjjjU1HFgORdk7674iUg3fvWe6koQxqheeDYNr5c5HyQ==
+      gc1cbad9323
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 梁山八号
+    server: ws://120.77.213.218:25631
+    token: >-
+      31487644024747c0acbee282ecf88745
+      vOyg+j/z8PLJk2EswCduQHehB2U9NEdv7Ho2+HxT92cjjjU1HFgORdk7674iUg3fvWe6koQxqheeDYNr5c5HyQ==
+      hzijbad9359
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 梁山九号
+    server: ws://120.77.213.218:25631
+    token: >-
+      31487644024747c0acbee282ecf88745
+      vOyg+j/z8PLJk2EswCduQHehB2U9NEdv7Ho2+HxT92cjjjU1HFgORdk7674iUg3fvWe6koQxqheeDYNr5c5HyQ==
+      se89bad922f
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 梁山十号
+    server: ws://120.77.213.218:25631
+    token: >-
+      31487644024747c0acbee282ecf88745
+      vOyg+j/z8PLJk2EswCduQHehB2U9NEdv7Ho2+HxT92cjjjU1HFgORdk7674iUg3fvWe6koQxqheeDYNr5c5HyQ==
+      wk6sbad941c
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
