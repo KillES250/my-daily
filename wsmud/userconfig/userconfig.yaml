@@ -766,3 +766,26 @@ roles:
       yunbiao: false
       tazhu: null
       yaoshen: null
+  - name: 烟水寒
+    server: ws://120.77.213.218:25631
+    token: >-
+      7caecf1fddeb48d1a9556ee1992ec1cd
+      sobFSEhxw/hIEEJ17fWyMKjBoSUf7TQcLGMShbiD08qmg3vhblLs8KjFLbV2sshuMdpTzy1hcXyQ+slk4PGb3g==
+      d1hr5ab3b44
+    canlogin: true
+    redboss: true
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: saodang muyuan
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
