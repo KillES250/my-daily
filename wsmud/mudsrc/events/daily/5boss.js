@@ -2,17 +2,18 @@ const fs = require('fs');
 const path = require('path');
 const logger = require(path.resolve(__dirname, '../../../server/logger'));
 const { tipback } = require('../../example/tipback.js');
+const { log } = require('console');
 
 let bossFightTestNum = 0;
-let lunjiantop = false;
-let yihuamgong = false;
 let skillsForRedBoss = ['blade.xue'];
 let delpath = true;
+let executed = true;
 
 module.exports = async function (data) {
     const logFilePath = path.join(__dirname, 'bosslogs', `${this.userConfig.name}BOSS.log`);
     switch (data.type) {
         case 'start':
+            this.cmd.send('team dismiss;team out')
             this.cmd.send('stopstate');
             // 这里需要获取玩家id
             this.cmd.send('score')
@@ -32,7 +33,7 @@ module.exports = async function (data) {
                 // 副本掉落分解
                 this.gameInfo.useLessItems.includes(data.name) && this.cmd.send(`fenjie ${data.id}`);
                 // 白色掉落丢弃
-                data.name.includes('<wht>') && this.cmd.send(`drop ${data.count} ${data.id}`);
+                data.name.includes('<wht>') && !data.name.includes('东厢钥匙') && this.cmd.send(`drop ${data.count} ${data.id}`);
             }
             break;
             
@@ -44,13 +45,17 @@ module.exports = async function (data) {
             if(this.room === '移花宫-邀月宫(副本区域)' || this.room === '移花宫-涟星宫(副本区域)'){
                 this.cmd.send('look hua')
             }
-            // 解决华山论剑台的重复判定
-            if(this.roomPath === 'huashan/lunjian/top'){
-                lunjiantop = true;
-            }
-            
-            if(this.roomPath === 'huashan/yihua/damen'){
-                yihuamgong = true;
+            // 云梦沼泽 围墙重复判定
+            // 冰火岛 石洞重复判定
+            // 燕子坞 后堂重复判定
+            // 论剑台 重复判定
+            if(
+                this.room === '云梦沼泽-茅屋(副本区域)' ||
+                this.room === '冰火岛-石洞(副本区域)' ||
+                this.room === '燕子坞-还施水阁(副本区域)' ||
+                this.roomPath === 'huashan/lunjian/top'
+            ){
+                executed = false;
             }
             break;
         
@@ -181,19 +186,25 @@ module.exports = async function (data) {
                         //这里直接跳出，等待items信息返回    
                     break;
                 }
+                // 云梦沼泽围墙位移判定(在删除路径之前)
+                if(this.roomPath === 'cd/yunmeng/weiqiang' && executed === true){
+                    this.cmd.send('jump wei');
+                    // 这里循环被跳出后来等待茅屋 的items的返回继续
+                    break;
+                }
+                // 冰火岛钻洞判定
+                if(this.roomPath === 'mj/bhd/shishan2' && executed === true){
+                    this.cmd.send('zuan dong');
+                     // 这里循环被跳出后来到山洞，等待山洞 的items的返回继续
+                    break;
+                }
                 // 移花宫迷宫判定(在删除路径之前)
-                if(this.roomPath === 'huashan/yihua/yihua0' && yihuamgong === false){
+                if(this.roomPath === 'huashan/yihua/yihua0'){
                     this.cmd.send('go south');
                         // 这里循环被跳出后来到山道，等待 山道 的items的返回继续
                     break;
                 }
                 
-                // 防止大门被立即调用(在删除路径之前)
-                if(this.roomPath === 'huashan/yihua/damen'){
-                    await sleep(1);
-                    this.cmd.send('tm 调用下次路径判定')
-                    break;
-                }
                 // 缥缈峰位移判定(在删除路径之前)
                 if(this.roomPath === 'lingjiu/jian'){
                     this.cmd.send('zou tiesuo');
@@ -202,7 +213,7 @@ module.exports = async function (data) {
                 }
                 
                 // 华山论剑台只有在未去过华山绝顶的情况下才发送解密信息(在删除路径之前)
-                if(this.roomPath === 'huashan/lunjian/tai' && lunjiantop === false){
+                if(this.roomPath === 'huashan/lunjian/tai' && executed === true){
                     this.cmd.send('jump bi')
                     // 这里直接跳出，等待items返回继续
                     break;
@@ -218,25 +229,25 @@ module.exports = async function (data) {
                 // 地主家判定
                 // 可能出现没打到钥匙，员外还在这里就走不到西厢房，却收到没有钥匙的开门提示，提前结束副本
                 if(this.roomPath === 'yz/cuifu/houyuan'){
-                    const cuiyuanwai = this.npclist.find(item => item.name === '崔员外的尸体');
-                    if(cuiyuanwai){
+                    if(this.npclist.length === 0){
                         this.cmd.send('open men')
                     } else {
                         // 否则直接跳出，等待执行去西厢房被拦路跳转下杀
                         this.cmd.send('tm 调用下次路径判定')
-                        break;
                     }
+                    break;
                 }
+                
                 //宫主房间判定(这里可能存在卡主的情况，暂不调整)
                 if(this.roomPath === 'huashan/yihua/woshi'){
                     this.cmd.send('pushstart bed')
-                    this.cmd.send(`${'pushleft bed;'.repeat(pushLeftNum)}`)
-                    this.cmd.send(`${'pushright bed;'.repeat(pushRightNum)}`)
+                    this.cmd.send(`${'pushleft bed;'.repeat(this.pushBedLeftNum)}`)
+                    this.cmd.send(`${'pushright bed;'.repeat(this.pushBedRightNum)}`)
                     // 这里直接跳出等待tip返回继续
                     break;
                 }
                 // 燕子坞牌位判定
-                if(this.roomPath === 'murong/houting'){
+                if(this.roomPath === 'murong/houting' && executed === true){
                     this.cmd.send(`${'bai pai;'.repeat(3)}`)
                     // 这里直接诶跳出，等待tip返回继续
                     break;
@@ -256,6 +267,11 @@ module.exports = async function (data) {
         
         case 'nextPath':
             // 如果路径长度不为0，则继续执行路径数组第一个指令
+            // 对特殊情况的下脱战进行处理
+            if(this.bossId){
+                this.cmd.send('tm 调用击杀');
+                break;
+            }
             if(this.fbPath.length > 0){
                 this.cmd.send(this.fbPath[0]);
             } else {
@@ -265,8 +281,9 @@ module.exports = async function (data) {
             break;
         
         case 'readyForKill':
-            // 等待技能冷却
+            // 嗜血模式(血剑刀典)
             if(this.userConfig.redboss === false){
+                // 等待技能冷却
                 await sleep(60);
                 // 清空技能黑名单
                 this.skillsBanList = [];
@@ -276,6 +293,7 @@ module.exports = async function (data) {
                 this.cmd.send('enable force none;enable force cihangjiandian')
                 this.cmd.send(`perform force.xin;perform ${this.tanlong}`)
             }
+            // 直接击杀
             else {
                 this.cmd.send(`kill ${data.id}`)
             }
@@ -285,16 +303,38 @@ module.exports = async function (data) {
             if (data.ch === 'tm') {
                 if(data.content === '调用击杀'){
                     this.emit('Data', { type: 'readyForKill' , id:this.bossId});
+                    return;
                 } 
-                else if (data.content === '调用结束') {
+                if (data.content === '调用结束') {
                     this.emit('Data', { type: 'next' });
+                    return;
                 }
-                else if (data.content === '调用当前路径判定'){
+                if (data.content === '调用当前路径判定'){
                     this.emit('Data', { type: 'nowPath' });
+                    return;
                 }
-                else if (data.content === '调用下次路径判定'){
+                if (data.content === '调用下次路径判定'){
                     this.emit('Data', { type: 'nextPath' });
+                    return;
                 }
+                // 测试代码
+                if (data.content.includes('这位客官，我最近听不少人说是')) {
+                    const bossMsg = data.content.match(/我最近听不少人说是在(.*?)见到过(.*?)。/);
+                    // 获取副本，boss名字
+                    this.bossName = bossMsg[2].trim();
+                    const dest = bossMsg[1].trim();
+                    const fbWayArray = Object.entries(this.gameInfo.fbWay);
+                    const fbWayEntry = fbWayArray.find(entry => entry[0] === dest);
+                    if (fbWayEntry) {
+                        // 建立数组，开始执行寻路
+                        this.fbPath = fbWayEntry[1].split(';');
+                        this.cmd.send(this.fbPath[0]);
+                    } else {
+                        logger.warning(`「${this.userConfig.name}」解析boss信息失败，准备退出流程。`);
+                        this.cmd.send('tm 调用结束');
+                    }
+                }
+                // 测试代码
             }
             break;
         
@@ -329,9 +369,11 @@ module.exports = async function (data) {
                 // 不允许主动删除路径
                 delpath = false;
                 this.itemsResult = true;
+                let killCommands = '';
                 this.npclist.forEach(item => {
-                    this.cmd.send(`kill ${item.id}`)
+                    killCommands += `kill ${item.id};`;
                 });
+                this.cmd.send(killCommands,false);
                 // 这里直接跳出,等待combat的end返回
                 break;
             }
@@ -379,7 +421,7 @@ module.exports = async function (data) {
                 // 这里赋值为空，会在战斗结束后调用路径，跳转至路径判定(路径为0处)，然后结束副本
                 this.fbPath = [];
                 this.bossId = null;
-                return
+                return;
             }
             break;
         default:

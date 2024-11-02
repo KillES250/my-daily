@@ -10,7 +10,7 @@ const { configs } = require('./configs.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true, depth: 10, limit: '50mb' }));
 
 
 // 设置路由以返回index.html
@@ -96,14 +96,6 @@ app.post('/api/:action', async (req, res) => {
                res.json({ message: '加载配置失败' });
             }
             break;
-        // case 'upDateToken':
-        //     const upDateToken = await configs.upDateToken()
-        //     if (upDateToken) {
-        //         res.json({ message: '更新token成功' });
-        //    } else {
-        //         res.json({ message: '更新token失败' });
-        //    }
-        //     break;
         case 'saveConfigtmp':
             const saveConfigtmp = await configs.saveUserConfigTmp()
             if (saveConfigtmp) {
@@ -142,6 +134,14 @@ app.post('/api/:action', async (req, res) => {
                 res.json({ message:'保存成功' });
             } else {
                 res.json({ message:'保存失败' });
+            }
+            break;
+        case 'itemsConfig':
+            const itemsConfigResult = await configs.getallitems();
+            if (itemsConfigResult) {
+                res.json({ message: '获取成功', items: itemsConfigResult });
+            } else {
+                res.json({ message: '获取失败' });
             }
             break;
         case 'runall':

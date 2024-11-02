@@ -1,10 +1,12 @@
 // configs.js
 const fs = require('fs').promises
 const { verify } = require('crypto');
+// const { console } = require('inspector');
 const yaml = require('js-yaml');
 const path = require('path');
 const userconfigtmp = path.resolve(__dirname, '../userconfig/userconfigtmp.yaml');
 const userconfig = path.resolve(__dirname, '../userconfig/userconfig.yaml');
+const itemspath = path.resolve(__dirname, '../物品数据.yaml');
 
 const configs = {
     // 将对象中的字符串转换为布尔值
@@ -20,7 +22,6 @@ const configs = {
             }
           }
         }
-        console.log('登入命令：',newObj);
         return newObj;
     },
     // 将字符串转换为布尔值
@@ -220,26 +221,13 @@ const configs = {
             console.error('Error saving Push Token Result:', error);
         }
     },
-    // async upDateToken(){
-    //     try {
-    //         const existingData = await fs.readFile(userconfig, 'utf8');
-    //         let config = yaml.load(existingData);
-    //         const roles = config.roles;
-    //         if (!roles) {
-    //             return "没有角色，你更新个蛋啊"
-    //         } 
-    //         // else {
-    //         //     roles.forEach(roles => {
-    //         //         roles.canlogin = false
-    //         //     });
-    //         // }
-    //         const token = 
-    //     } catch (error) {
-    //         console.error('Error updating config:', error);
-    //     }
-    // },
+    // 获取所有物品数据
+    async getallitems() {
+        const data = await fs.readFile(itemspath, 'utf8');
+        const item = yaml.load(data);
+        return item.Items;
+    },
 };
-
 module.exports = { 
     configs,
 };

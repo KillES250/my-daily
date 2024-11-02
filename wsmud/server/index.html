@@ -18,8 +18,9 @@
     .main-left,
     .main-mid,
     .main-right {
-        width: 33%;
-        height: 100%;
+        flex-basis: 500px;
+        height: 100vh;
+        flex-shrink: 0;
         margin: 0 auto;
         display: flex;
         background-color: #f0f0f0;
@@ -68,7 +69,7 @@
         text-align: center;
     }
 
-    .read, .login, .config, .task, .save {
+    .read, .login, .config, .task, .items {
         flex: 1;
         background-color: #ccc;
         padding: 5px;
@@ -99,6 +100,7 @@
     }
     .add_allroles button{
         width: 30%;
+        font-size: large;
     }
     .commit button{
         width: 100%;
@@ -192,17 +194,19 @@
         cursor: pointer;
         background-color: green;
     }
-    .taskup, .taskdown {
+    .task .taskup, 
+    .task .top,
+    .task .taskdown {
         display: flex;
         flex-direction: row;
         padding: 5px;
     }
     .taskup .runtask,
-    .taskup .sotptask {
+    .taskup .saveConfigs {
         display: flex;
         justify-content: center;
         margin-inline: 2px;
-        width: 49%;
+        width: 50%;
     }
     .taskdown .dailytime,
     .taskdown .wartime,
@@ -244,7 +248,7 @@
     .timebox input[type="text" i] {
         display: flex;
         width: 70%;
-        font-size: large;
+        font-size: medium;
         text-align: center;
         font-weight: 600;
         height: 100%;
@@ -305,7 +309,7 @@
         font-size: large;
         font-weight: 600;
         align-items: center;
-        margin: 0 5% 2% 5%;
+        margin: 0 12% 0% 10%;
     }
     .rolseConfigs .currentRoleName button{
         font-size: large;
@@ -315,9 +319,16 @@
         display: flex;
         flex-direction: column;
         background: #ededed;
-        padding: 20px;
         font-weight: 600;
-        max-height: 75vh;
+        height: 85vh;
+        max-height: 85vh;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        justify-content: flex-start;
+        padding-top: 20px;
+    }
+    .rolseConfigs #optionsForm input[type="text"]{
+        width: 90%;
     }
     .rolseConfigs #optionsForm select{
         width: 120px;
@@ -329,17 +340,17 @@
     .rolseConfigs #optionsForm .option-group{
         display: flex;
         justify-content: space-between;
-        margin: 2% 10% 2% 10%;
+        margin: 1% 10% 0% 10%;
     }
     .rolseConfigs #optionsForm .option-group-for{
         display: flex;
         flex-direction: column;
-        margin: 2% 10% 2% 10%;
+        margin: 1% 10% 0% 10%;
     }
     .rolseConfigs #optionsForm .option-group-for2{
         display: flex;
         justify-content: space-between;
-        margin: 1% 0 1% 10%;
+        margin: 0.5% 0 0.5% 10%;
         font-weight: 500;
     }
     /* .rolseConfigs #optionsForm .option-group-for2 input[type="text"]{
@@ -387,69 +398,99 @@
         font-size: larger;
         font-weight: 600;
     }
-    .save .top{
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        gap: 5px;
-        max-height: 30px;
-        white-space: nowrap;
-    }
-    .save .top .title{
+    .task .top .title{
         display: inline-flex;
         font-size: larger;
-        font-weight: 600;
-        align-items: center;
-        justify-content: left;
-        width: 10%;
+        width: 15%;
         max-width: 15%;
         height: 30px;
         max-height: 30px;
         overflow: hidden;
+        justify-content: space-around;
+        border:0.5px #000000 solid;
+        background-color: #efefef;
     }
-    .save .top input{
+    .task .top input{
         display: inline-flex;
         flex: 1;
+        font-size: large;
         width: 70%;
         max-width: 70%;
     }
-    .save .top button{
+    .task .top button{
         display: flex;
         width: 15%;
         max-width: 15%;
         align-items: center;
         justify-content: center;
-        font-size: 18px;
+        font-size: large;
+        font-weight: 500;
         overflow: hidden;
     }
-    .save .bottom{
+    .items .bottom{
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+        overflow-y: scroll;
+        height: 90vh;
+        max-height: 90%;
+        justify-content: space-between;
+        border: 1px solid #000; 
     }
 
-    .save .bottom .text{
-        display: grid;
-        margin: 0 0 0 0;
-        background: wheat;
-        max-height: 78vh;
-        overflow-y: scroll;
+    .items .bottom .itmes-for {
+        display: flex;
+        justify-content: space-between; 
+        flex: 0 0 49%;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        padding: 1px; 
+        height: 20px;
+        max-height: 20px;
     }
-    .save .bottom .text p {
-        line-height: 1; /* 这里的值可以调整，1.5 是一个常见的行间距比例 */
-        margin: 0 0 10px 0;
+
+    .items .bottom .itmes-for span {
+        flex: 1;
+        width:70%;
+        max-width: 70%;
+        font-size: small;
+    }
+
+    .items .bottom .itmes-for select {
+        flex: 1; 
+        width:30%;
+        max-width: 30%;
+        font-size: small;
+    }
+    .items .top{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: smaller;
+        justify-content: space-between;
+        height: 10%;
+        max-height: 10%;
+        font-size: 10px;
+    }
+    .items .top .stats-container{
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin-right: 1%;
+    }
+    .stats-container p {
+        margin: 0;
+        font-size: 10px;
     }
 </style>
 <body class="body">
-    <div class = "main-left">
-        <h1>this is main-left</h1>
-        <h1>-for gamelink</h1>
-    </div>
+    <!-- <div class = "main-left">
+    </div> -->
     <div class="main-mid">
         <div class="left">
             <button id="readConfig">读取配置</button>
             <button id="addRole">添加角色</button>
             <button id="roleConfig">角色配置</button>
-            <button id="saveConfig">保存配置</button>
+            <button id="itemsConfig">物品配置</button>
             <button id="executeTask">任务配置</button>
         </div>
         <div class="right">
@@ -496,11 +537,11 @@
                         <button id="applyToRoles">选择应用</button>
                     </div>
                     <form id="optionsForm">
-                        <div class="option-group-for2">
+                        <div class="option-group">
                             <label for="loginCommand">登入执行:</label>
                             <input type="text" name="loginCommand" id="loginCommand">
                         </div>
-                        <div class="option-group-for2">
+                        <div class="option-group">
                             <label for="logoutCommand">登出执行:</label>
                             <input type="text" name="logoutCommand" id="logoutCommand">
                         </div>
@@ -662,56 +703,24 @@
                     </form>
                 </div>
             </div>
-            <div class="save" hidden>
-                <h1>保存</h1>
+            <div class="items" hidden>
                 <div class="top">
-                    <span class="title">推送:</span>
-                    <input type="text" name="pushtoken">
-                    <button class="save">保存</button>
+                    <span>分配统计:</span> 
+                    <div class="stats-container"></div>
                 </div>
                 <div class="bottom">
-                    <span class="title">使用说明:</span>
-                    <div class="text">
-                        <p>0. 前端主要操作2个文件：</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[一个临时文件] - 主要用于前端渲染</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[一个运行文件] - 服务后端执行任务</p>
-
-                        <p>1.  [读取配置]--->鼠标悬停--->读取[临时文件]</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 角色名--->鼠标点击--->读取当前角色信息跳转[角色配置页面]</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [X]按钮--->删除[临时文件]中的当前角色</p>
-                            <p>&nbsp;&nbsp;&nbsp;[读取配置]--->鼠标点击--->读取[运行文件]的信息并覆盖到[临时文件]</p>
-
-                        <p>2.  [添加角色]--->鼠标悬停--->显示[登录页面]</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [+]按钮--->添加角色至[临时文件]</p>
-                            <p>&nbsp;&nbsp;&nbsp;[添加角色]--->鼠标点击--->验证并同步所有角色的[token]</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 无法登录的角色将在读取配置的时候被标识出来<还没写完这个功能></p>
-
-                        <p>3.  [角色配置]--->鼠标悬停--->显示[配置页面]</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 选择应用--->选择角色--->保存配置至[临时文件]</p>
-                            <p>&nbsp;&nbsp;&nbsp;[角色配置]--->鼠标点击--->重置[临时文件]</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 此操作会清空[临时文件]所有角色信息</p>
-
-                        <p>4.  [保存配置]--->鼠标悬停--->从[运行文件]读取显示[保存页面]</p>
-                            <p>&nbsp;&nbsp;&nbsp;- 保存按钮--->将pushpush保存至[运行文件]中</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[保存配置]--->鼠标点击--->读取[临时文件]的信息并覆盖到[运行文件]</p>
-
-                        <p>5.  [任务配置]--->鼠标悬停--->从[运行文件]读取所有任务时间数据并显示页面</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 挂起所有任务--->将所有带时间的任务挂起，等待到时执行</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 结束定时任务--->终结所有挂起的定时任务</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [运行XXXX]---->立即执行对应任务</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 时间格式:</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 日常 HH:MM</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 帮战 HH:MM红/橙</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 周常 1-7:HH:MM</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[任务配置]--->鼠标点击--->保存当前页面的时间设置到[运行文件]</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 每次执行挂起之前务必先保存时间配置，否则无法挂起</p>
-                    </div>
+                    <!-- 动态生成的选项 -->
                 </div>
             </div>
             <div class="task" hidden>
                 <div class="taskup">
+                    <button class="saveConfigs"><h1>保存当前配置</h1></button>
                     <button class="runtask"><h1>挂起所有任务</h1></button>
-                    <button class="sotptask"><h1>结束定时任务</h1></button>
+                </div>
+                <div class="top">
+                    <span class="title">推送:</span>
+                    <input type="text" name="pushtoken">
+                    <button class="push">保存</button>
                 </div>
                 <div class="taskdown">
                     <div class="dailytime">
@@ -759,15 +768,13 @@
             </div>
         </div>
     </div>
-    <div class = "main-right">
-        <h1>this is main-right</h1>
-        <h1>-for tuiyan</h1>
-    </div>
+    <!-- <div class = "main-right">
+    </div> -->
     <script>
         $(document).ready(function(){
-            const rightBoxArr = ['read', 'login', 'config', 'save', 'task'];
+            const rightBoxArr = ['read', 'login', 'config', 'items', 'task'];
             const leftButtonArr = $('.left button').map((_, el) => el.id).get();
-            const leftButtonBindArr = ['readConfig','addRole','executeTask','saveConfig'];
+            const leftButtonBindArr = ['readConfig','addRole','executeTask','itemsConfig'];
             // 绑定鼠标移入事件
             function bindMouseOver(...selectors) {
                 let selectorString = Array.isArray(selectors) ? selectors.map(selector => `#${selector}`).join(', ') : `#${selectors}`;
@@ -780,8 +787,9 @@
                             randerRoles(data.readConfigResult);
                         } else if (id === 'executeTask') {
                             randerExecuteTask(data.executeTaskResult);
-                        } else if (id === 'saveConfig') {
                             $('input[name="pushtoken"]').val(data.executeTaskResult.pushpushpush);
+                        } else if (id === 'itemsConfig') {
+                            radnerallitems(data.items);
                         }
                     });
                 });
@@ -826,9 +834,9 @@
                     $('.modal-msg').text("该操作会读取<运行配置>到当前界面(覆盖)。");
                     $(".modal-msg").attr("value", "loadConfig");
                 } else if (data === 'addRole') {
-                    $('.modal-msg').text("是否同步所有角色的密匙(token码)。");
+                    $('.modal-msg').text("是否同步所有角色的密匙(token码)？");
                     $(".modal-msg").attr("value", "upDateToken");
-                } else if (data === 'saveConfig') {
+                } else if (data === 'saveConfigs') {
                     $('.modal-msg').text("该操作会将<当前配置>同步到<运行配置>中(覆盖)。");
                     $(".modal-msg").attr("value", "saveConfigtmp");
                 } else if (data === 'executeTask') {
@@ -837,6 +845,9 @@
                 }else if (data === 'roleConfig') {
                     $('.modal-msg').text("移除所有角色，初始化文件(文件格式损坏时)");
                     $(".modal-msg").attr("value", "initConfigtmp");
+                }else if (data === 'itemsConfig') {
+                    $('.modal-msg').text("下载当前物品策略匹配覆盖，位置根目录下");
+                    $(".modal-msg").attr("value", "saveItemsConfigs");
                 }
                 $('.left, .right').hide();
                 $('.modal-warning').css('display' ,'block');
@@ -973,7 +984,7 @@
                     const itembox = $('<input type="text" name="time" />').val('');
                     const deleteButton = $('<button>', {
                         class: 'delete-button',
-                        text: '删除',
+                        text: '删',
                         click: function() {
                             container.remove();
                             $(this).remove();
@@ -987,7 +998,7 @@
                     const itembox = $('<input type="text" name="time" />').val(item);
                     const deleteButton = $('<button>', {
                         class: 'delete-button',
-                        text: '删除',
+                        text: '删',
                         click: function() {
                             container.remove();
                             $(this).remove();
@@ -1016,7 +1027,7 @@
                     $('.left, .right').show();
                 });
                 // 绑定确认按钮逻辑
-                $('#ok').one('click', function(data) {
+                $('#ok').one('click', async function(data) {
                     const order = $(".modal-msg").attr("value");
                     let reqdata = {};
                     if(order === "upDateAllTasktime"){
@@ -1026,10 +1037,27 @@
                             weektime: getInputTimeValues('.weektime :input')
                         }
                     }
+                    if (order === "saveItemsConfigs") {
+                        const reqbody = await collectAllItems();
+                        const yamlContent = objectToYaml(reqbody);
+                        const blob = new Blob([yamlContent], { type: 'text/yaml' });
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = '物品数据.yaml';
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                        $('.modal-warning').css('display' ,'none');
+                        $('.left, .right').show();
+                        return;
+                    }
                     const checkDataFormat = checkTimeDataFormat(reqdata);
                     if(checkDataFormat === true){
                         // 这里会调用警告弹窗的三个路由post，如果req不为空则是时间路由请求。
                         $.post(`/api/${order}`, reqdata, function(callback) {
+                            console.log(order)
                             if(order === "loadConfig"){
                                 location.reload();
                                 return
@@ -1043,6 +1071,83 @@
                     $('.left, .right').show();
                 });
             };
+            // 渲染物品界面
+            function radnerallitems(data) {
+                const $container = $('.items .bottom');
+                $container.empty();
+                // 遍历传入的data
+                $.each(data, (index, item) => {
+                    // 获取对象的键和值
+                    const key = Object.keys(item)[0];
+                    const value = item[key];
+
+                    const $itemFor = $('<div></div>').addClass('itmes-for');
+                    const $span = $('<span></span>').text(key);
+                    $itemFor.append($span);
+
+                    const $select = $('<select></select>');
+                    const options = [
+                        '丢弃', '出售', '使用', '分解', '背包', '仓库', '书架', '随从1', '随从2', '随从3'
+                    ];
+
+                    options.forEach(optionText => {
+                        const $option = $('<option></option>').val(optionText).text(optionText);
+                        $select.append($option);
+                    });
+
+                    $select.val(value);
+                    $itemFor.append($select);
+                    $container.append($itemFor);
+                    // 即时渲染
+                    $select.change(updateStats);
+                });
+                // 立即统计渲染一次
+                updateStats();
+            };
+            // 统计物品使用情况函数(上方即时渲染)
+            function updateStats() {
+                const options = [
+                    '丢弃', '出售', '使用', '分解', '背包', '仓库', '书架', '随从1', '随从2', '随从3'
+                ];
+
+                const stats = options.reduce((acc, option) => {
+                    acc[option] = 0;
+                    return acc;
+                }, {});
+
+                $('.items .bottom select').each(function() {
+                    const value = $(this).val();
+                    if (options.includes(value)) {
+                        stats[value]++;
+                    }
+                });
+
+                const $statsContainer = $('.stats-container');
+                $statsContainer.empty();
+
+                for (const [option, count] of Object.entries(stats)) {
+                    const $statItem = $(`<p>${option}: ${count}</p>`);
+                    $statsContainer.append($statItem);
+                }
+            }
+            // 获取所有物品的设置
+            async function collectAllItems() {
+                const $container = $('.items .bottom');
+                const itemsArray = [];
+
+                // 反向遍历容器中的每个物品('.itmes-for'
+                $container.find('.itmes-for').each((index, itemFor) => {
+                    const $itemFor = $(itemFor);
+                    const itemName = $itemFor.find('span').text();
+                    const selectedOption = $itemFor.find('select').val();
+                    // 将名称和选择的操作组合成一个数组
+                    const itemObject = {};
+                    itemObject[itemName] = selectedOption;
+                    itemsArray.push(itemObject);
+                });
+                // 发送数组
+                return itemsArray;
+            }
             // 显示右侧页面
             function showPage(id) {
                 const index = leftButtonArr.indexOf(id);
@@ -1073,9 +1178,13 @@
                 $(this).css('background-color','#ccc')
             });
             // 警告弹窗
-            $('.left').on('click', '#readConfig, #addRole, #saveConfig, #executeTask, #roleConfig', function() { 
+            $('.left').on('click', '#readConfig, #addRole, #itemsConfig, #executeTask, #roleConfig', function() { 
                 const id = $(this).attr('id');
                 randerWarning(id)
+            });
+            $('.saveConfigs').on('click', function() { 
+                const id = $(this).attr('id');
+                randerWarning('saveConfigs')
             });
             // 登录按钮绑定
             $('.commit').on('click', function(data) {
@@ -1091,7 +1200,7 @@
                 });
 
             });
-            //添加所有角色按钮绑定
+            // 添加所有角色按钮绑定
             $('.add_allroles').on('click', function() {
                 const interval = 100; 
                 $('.add-button').each(function(index) {
@@ -1170,8 +1279,8 @@
                     }
                 });
             });
-            $('.save .top .save').on('click', function(){
-                const pushTokenValue = $('.save .top :text').val();
+            $('.task .top .push').on('click', function(){
+                const pushTokenValue = $('.task .top :text').val();
                 $.post('/api/savePushToken', {pushTokenValue}, function(data) {
                     if (data.message) {
                         alert(data.message)
@@ -1225,6 +1334,16 @@
                     }
                 })
             });
+            // 将对象转换为 YAML 格式
+            function objectToYaml(obj) {
+                let yaml = 'Items:\n';
+                obj.forEach(item => {
+                    const itemName = Object.keys(item)[0];
+                    const selectedOption = item[itemName];
+                    yaml += ` - '${itemName}': ${selectedOption}\n`;
+                });
+                return yaml;
+            }
         });
     </script>
 </body>

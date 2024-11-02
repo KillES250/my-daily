@@ -7,10 +7,8 @@ const tipback = {
     specPath: [
         { id: 'yz/lcy/fang2', act: 'tui tai' },
         { id: 'bj/shenlong/lin1', act: 'kan bush' },
-        { id: 'cd/wen/tingzi', act: 'tiao zhuang' },
-        { id: 'cd/yunmeng/weiqiang', act: 'jump wei' },
+        { id: 'cd/wen/tingzi', act: 'tiao zhuang;tiao zhuang' },
         { id: 'cd/yunmeng/zhaoze4', act: 'kan lu' },
-        { id: 'mj/bhd/shishan2', act: 'zuan dong' },
         { id: 'huashan/yihua/midao', act: 'fire' },
         { id: 'heimuya/up1', act: 'push xiazi' },
         { id: 'heimuya/up2', act: 'push xiazi' },
