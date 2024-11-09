@@ -36,6 +36,7 @@ module.exports = class War extends Socket {
         this.war = 'none';
         this.timerOfHaoLing = null;
         this.startKill = false;
+        this.skillsForGangleader = ['force.xin','dodge.lingbo'];
         if(this.userConfig.war.leader === true){
             this.hpPerjk();
         }

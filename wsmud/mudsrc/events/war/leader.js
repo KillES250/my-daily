@@ -3,8 +3,6 @@ const path = require('path');
 const yaml = require('js-yaml');
 const time = yaml.load(fs.readFileSync(path.resolve(__dirname, '../../../userconfig/userconfig.yaml')));
 
-var skillsForGangleader = ['force.xin','dodge.lingbo'];
-
 module.exports = async function (data) {
     switch (data.type) {
         case 'start':
@@ -26,13 +24,13 @@ module.exports = async function (data) {
                     this.startKill = true;
                 }else if (this.warMode === 'o'){
                     this.cmd.send('enable blade xiuluodao');
-                    skillsForGangleader.push('unarmed.qi');
-                    skillsForGangleader.push('force.ding');
+                    this.skillsForGangleader.push('unarmed.qi');
+                    this.skillsForGangleader.push('force.ding');
                 }
                 // 切换技能后等待pfm的返回绑定自动出招
                 await sleep(5);
                 // 为自动出招提供自动施法的技能
-                this.skillsBanList = this.userSkills.filter(skill => !skillsForGangleader.includes(skill));
+                this.skillsBanList = this.userSkills.filter(skill => !this.skillsForGangleader.includes(skill));
                 this.cmd.send('go south');
                 this.cmd.send('perform force.tu');
                 // 加入一个等待参者准备的等待
@@ -69,12 +67,8 @@ module.exports = async function (data) {
                     this.war = 'start';
                     // 设置一个号令计时器
                     this.timerOfHaoLing = setInterval(() => {
-                    	++this.haoLingNum;
-                        if (this.haoLingNum === 5){
-                            this.cmd.send('pty 第5波号令已刷新,开始击杀!');
-                        }
-                        this.cmd.send(`pty 第${this.haoLingNum}波号令已刷新!`)
-                    }, 300000); // 5分钟为300000毫秒
+                        this.cmd.send('pty 开始击杀!');
+                    }, 1500000); // 25分钟为1500000毫秒
                     this.cmd.send(this.gameInfo.war.way);
                     return;
                 }
