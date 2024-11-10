@@ -36,7 +36,7 @@ module.exports = async function (data) {
             }
             if(data.dialog === 'pack' && data.items){
                 const redItem = data.items.find(itmes => itmes.name.includes('神魂碎片'))
-                if (redItem.count < 50){
+                if (redItem && redItem.count < 50){
                     buy = true;
                 }
                 return;
