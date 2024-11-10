@@ -13,6 +13,7 @@ module.exports = async function (data) {
             await sleep(3)
             this.cmd.send('tasks');
             this.cmd.send('stopstate');
+            this.cmd.send('team out');
             this.cmd.send(this.userConfig.loginCommand);
             // 测试用代码
                 const logFilePath = path.join(__dirname, 'bosslogs', `${this.userConfig.name}BOSS.log`);
