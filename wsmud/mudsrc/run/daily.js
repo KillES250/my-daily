@@ -5,10 +5,9 @@ const userconfig = path.resolve(__dirname, '../../userconfig/userconfig.yaml');
 const Daily = require('../example/daily.js');
 
 async function rundaily() {
-
-        roles.slice(0, 30).forEach((userConfig) => {
-            loginQueue(configs, userConfig);
-        });
+    roles.slice(0, 30).forEach((userConfig) => {
+      loginQueue(configs, userConfig);
+    });
 }
 
 function loginQueue(configs, userConfig) {

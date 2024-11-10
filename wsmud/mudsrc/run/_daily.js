@@ -6,9 +6,19 @@ const Daily = require('../example/daily.js');
 
 async function rundaily() {
 
+    try {
+        const data = await fs.promises.readFile(userconfig, 'utf8');
+        const configs = yaml.load(data);
+        const roles = Array.isArray(configs) ? configs : configs.roles;
+        global.pushplusToken = configs.pushplus ? configs.pushplus : '';
+
+        // 限制登录数量
         roles.slice(0, 30).forEach((userConfig) => {
             loginQueue(configs, userConfig);
         });
+    } catch (error) {
+        console.error('Error reading or processing config file:', error);
+    }
 }
 
 function loginQueue(configs, userConfig) {
