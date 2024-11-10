@@ -8,7 +8,7 @@ module.exports = async function (data) {
             logger.success(`「${this.userConfig.name}」登录成功`);
             this.cmd.send('setting auto_pfm 0;setting auto_pfm2 0;setting auto_work 0;setting auto_get 1');
             await sleep(1);
-            this.cmd.send('cr over')
+            this.cmd.send('cr;cr over')
             this.cmd.send('score');
             await sleep(3)
             this.cmd.send('tasks');
