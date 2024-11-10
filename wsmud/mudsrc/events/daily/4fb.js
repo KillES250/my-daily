@@ -24,7 +24,9 @@ module.exports = async function (data) {
                 if(this.userConfig.dungeons.fourth){
                     while (num > 0) {
                         this.cmd.send(`${this.userConfig.dungeons.third} 0`)
+                        await sleep(3);
                         this.cmd.send('cr over');
+                        await sleep(3);
                         num -= 1
                         if (num === 0) {
                             this.emit('Data',{type:'next'});

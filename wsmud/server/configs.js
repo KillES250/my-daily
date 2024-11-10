@@ -1,7 +1,5 @@
 // configs.js
 const fs = require('fs').promises
-const { verify } = require('crypto');
-// const { console } = require('inspector');
 const yaml = require('js-yaml');
 const path = require('path');
 const userconfigtmp = path.resolve(__dirname, '../userconfig/userconfigtmp.yaml');

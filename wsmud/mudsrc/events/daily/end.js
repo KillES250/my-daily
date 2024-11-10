@@ -1,5 +1,6 @@
 const path = require('path');
 const logger = require(path.resolve(__dirname, '../../../server/logger'));
+let tiejiang = null;
 
 module.exports = async function (data){
     switch (data.type){
@@ -26,7 +27,7 @@ module.exports = async function (data){
         case 'items':
             data.items.forEach(item => {
                 if (item && !item.p && item.name.includes('铁匠')) {
-                    shopId = item.id
+                    tiejiang = item.id;
                     this.cmd.send(`list ${item.id}`);
                 }
             });
@@ -35,7 +36,7 @@ module.exports = async function (data){
             if (data.dialog === 'list') {
                 data.selllist.forEach(item => {
                     if (item.name.includes('铁镐')) {
-                        this.cmd.send(`buy 1 ${item.id} from ${shopId};wakuang`);
+                        this.cmd.send(`buy 1 ${item.id} from ${tiejiang};wakuang`);
                     }
                 })
             }

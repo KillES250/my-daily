@@ -18,7 +18,7 @@
     .main-left,
     .main-mid,
     .main-right {
-        flex-basis: 500px;
+        flex-basis: 550px;
         height: 100vh;
         flex-shrink: 0;
         margin: 0 auto;
@@ -1087,7 +1087,7 @@
 
                     const $select = $('<select></select>');
                     const options = [
-                        '丢弃', '出售', '使用', '分解', '背包', '仓库', '书架', '随从1', '随从2', '随从3'
+                        '丢弃',  '使用', '分解', '背包', '仓库', '书架', '随从1', '随从2', '随从3'
                     ];
 
                     options.forEach(optionText => {
@@ -1107,7 +1107,7 @@
             // 统计物品使用情况函数(上方即时渲染)
             function updateStats() {
                 const options = [
-                    '丢弃', '出售', '使用', '分解', '背包', '仓库', '书架', '随从1', '随从2', '随从3'
+                    '丢弃', '使用', '分解', '背包', '仓库', '书架', '随从1', '随从2', '随从3'
                 ];
 
                 const stats = options.reduce((acc, option) => {
@@ -1348,3 +1348,4 @@
     </script>
 </body>
 </html>
+s

@@ -13,7 +13,7 @@ async function rundaily() {
         global.pushplusToken = configs.pushplus ? configs.pushplus : '';
 
         // 限制登录数量
-        roles.slice(0, 50).forEach((userConfig) => {
+        roles.slice(0, 30).forEach((userConfig) => {
             loginQueue(configs, userConfig);
         });
     } catch (error) {

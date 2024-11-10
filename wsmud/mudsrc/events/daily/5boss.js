@@ -282,7 +282,8 @@ module.exports = async function (data) {
         
         case 'readyForKill':
             // 嗜血模式(血剑刀典)
-            if(this.userConfig.redboss === false){
+            // 1、无需击杀npc
+            if(this.userConfig.redboss === false && !data.kill){
                 // 等待技能冷却
                 await sleep(60);
                 // 清空技能黑名单
@@ -292,6 +293,15 @@ module.exports = async function (data) {
                 // 剑心+探龙
                 this.cmd.send('enable force none;enable force cihangjiandian')
                 this.cmd.send(`perform force.xin;perform ${this.tanlong}`)
+            } 
+            // 2、需击杀npc
+            else if (this.userConfig.redboss === false && data.kill) {
+                this.cmd.send('enable force changshengjue;perform force.zhen;enable force cihangjiandian');
+                this.npclist.forEach(item => {
+                    killCommands += `kill ${item.id};`;
+                });
+                this.cmd.send(killCommands,false);
+                // 等待战斗结束自动跳转至上方击杀boss调用处
             }
             // 直接击杀
             else {
@@ -303,6 +313,10 @@ module.exports = async function (data) {
             if (data.ch === 'tm') {
                 if(data.content === '调用击杀'){
                     this.emit('Data', { type: 'readyForKill' , id:this.bossId});
+                    return;
+                } 
+                if(data.content === '调用击杀2'){
+                    this.emit('Data', { type: 'readyForKill' , id:this.bossId , npc:'kill'});
                     return;
                 } 
                 if (data.content === '调用结束') {
@@ -385,8 +399,8 @@ module.exports = async function (data) {
             }
             
             // 探龙成功继续调用击杀流程
-            if(data.data.includes('偷到')){
-                this.cmd.send('tm 调用击杀');
+            if(/结果你什么都没偷到|偷到了/.test(data.data)){
+                this.cmd.send('tm 调用击杀2');
                 break;
             }
             

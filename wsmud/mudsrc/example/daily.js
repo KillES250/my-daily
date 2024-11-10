@@ -36,6 +36,7 @@ module.exports = class Daily extends Socket {
         this.combatFailedNum = 0;
         this.towerGuardianId = null;
         this.nowRoomId = null;
+        //新增部分
         this.room = null;
         this.roomPath = null;
         this.timers = {
@@ -54,7 +55,7 @@ module.exports = class Daily extends Socket {
             yaota:null
         }
         this.weapon = null;
-        
+        //boss相关
         this.bossId = null;
         this.bossName = null;
         this.tanlong = null;
@@ -64,8 +65,24 @@ module.exports = class Daily extends Socket {
         this.pushBedRightNum = 0;
         this.relive = true;
         this.bossFightTestNum = 0;
-        
-        this.mapdata = {};
+        // this.mapdata = {};
+        //杂项相关
+        this.userBag = { id:null,data:[], count: 0, };
+        this.userStore = { data:[], count: 0 };
+        this.userSj = { id:null, data:[], count: 0 };
+        this.userSc1 = { id:null, data:[], count: 0 };
+        this.userSc2 = { id:null, data:[], count: 0 };
+        this.userSc3 = { id:null, data:[], count: 0 };
+
+        this.drop = new Map();
+        this.use = new Map();
+        this.fenjie = new Map();
+        this.bag = new Map();
+        this.store = new Map();
+        this.sj = new Map();
+        this.sc1 = new Map();
+        this.sc2 = new Map();
+        this.sc3 = new Map();
     }
 
     loadEvents() {

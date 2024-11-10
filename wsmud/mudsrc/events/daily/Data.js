@@ -43,6 +43,7 @@ module.exports = async function (data) {
                 }
             }else if (data.dialog === 'score' && data.level){
                 this.userLevel = data.level;
+                this.userId = data.id;
             }
             break;
         case 'next':
