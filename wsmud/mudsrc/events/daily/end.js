@@ -26,6 +26,7 @@ module.exports = async function (data){
         case 'items':
             data.items.forEach(item => {
                 if (item && !item.p && item.name.includes('铁匠')) {
+                    shopId = item.id
                     this.cmd.send(`list ${item.id}`);
                 }
             });
@@ -34,7 +35,7 @@ module.exports = async function (data){
             if (data.dialog === 'list') {
                 data.selllist.forEach(item => {
                     if (item.name.includes('铁镐')) {
-                        this.cmd.send(`buy 1 ${item.id};wakuang`);
+                        this.cmd.send(`buy 1 ${item.id} from ${shopId};wakuang`);
                     }
                 })
             }
