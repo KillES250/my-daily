@@ -1,0 +1,791 @@
+pushpushpush: '123'
+dailytime: 09:20|15:00
+wartime: 20:10橙|21:15橙|22:20红
+weektime: 5:12:30|6:12:20
+roles:
+  - name: 梅狸猫
+    server: ws://120.77.213.218:25632
+    token: >-
+      2e95bcc5af8b404cbfd5fb4bed16b68a
+      Ax0bpDpbqSIrMxe5tn/HA967OfSzftqDa6W8VSEq0R8CsNaHZGJslXTXmYph28Y8MLh6tTy4mbKSl+E+pre8pA==
+      1q6w456e9a7
+    canlogin: true
+    redboss: false
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr zsd/damen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
+    logoutCommand: es task
+  - name: 咩阿栗
+    server: ws://120.77.213.218:25633
+    token: >-
+      632b1137e5f34c7c8ccbd241bf535e71
+      d+RwJYxJ4BSg2qHSv2aImphebYX+exjC7SfV8W79qvz+GuRr6DmqEUXjSSaqH+oCKVsjjbVMWexrocBGWOdg2w==
+      itgb2133989
+    canlogin: true
+    redboss: true
+    leitai: false
+    dungeons:
+      first: true
+      second: true
+      third: saodang muyuan
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: true
+      yaoshen: true
+  - name: 醉无秋
+    server: ws://120.77.213.218:25632
+    token: >-
+      b093adb308ff419a85801215e8df1902
+      yUr+Lo3BpIWQqpEdoo0wfXnJ/sVdjJHF6lPu8dma16OXumUM6Uk7JArYkXZtL7pkIB1mMmese4YzTN/tQv+TFw==
+      79vb2beb087
+    canlogin: true
+    redboss: true
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: saodang muyuan
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
+  - name: 秋翎
+    server: ws://120.77.213.218:25632
+    token: >-
+      b093adb308ff419a85801215e8df1902
+      yUr+Lo3BpIWQqpEdoo0wfXnJ/sVdjJHF6lPu8dma16OXumUM6Uk7JArYkXZtL7pkIB1mMmese4YzTN/tQv+TFw==
+      sflb64b20c0
+    canlogin: true
+    redboss: false
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr zsd/damen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
+  - name: 万里无疆
+    server: ws://120.77.213.218:25632
+    token: >-
+      d1ca26729d694f4b936e4b2280d9e79e
+      feJnMzlbfMTntu7dCT3OjBUBuZZd4FQoruw/8/bl2RP0UUKN5XZdP19wfts+McNQRgCEuTBouZnPjNVXxAkGVA==
+      wk3k32d39ab
+    canlogin: true
+    redboss: false
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr zsd/damen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
+  - name: 苇名屑一郎
+    server: ws://120.77.213.218:25634
+    token: >-
+      289c64f80f9e498ab8695def4f5b51bd
+      XVEiCm5854uEkxy2wgMJkkCfYVlSMovwHCOLEo1R+IHhJQJjQZKgL2Lo8UDBSvzn1ogrx0tH+3imlT0Vds7vig==
+      ej9d363467d
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr zsd/damen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
+  - name: 郭靖
+    server: ws://120.77.213.218:25632
+    token: >-
+      9c44231738744a468f95ee97867fb040
+      fP+dcr4fByMBGEWKb6bBsIZCBokkBUI6+zPIIUSHbsHxVYEnFfaOViQFwYHa0V2qb5mtYie6QmYkz5d5yJxl4g==
+      p23219f9c9b
+    canlogin: true
+    redboss: true
+    leitai: false
+    dungeons:
+      first: true
+      second: true
+      third: saodang muyuan
+      fourth: false
+    war:
+      family: false
+      gang: true
+      leader: true
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: true
+      yaoshen: true
+    loginCommand: enable throwing p23219f9c9b;enable unarmed liumaishenjian;enable force p23219f9c9b;enable dodge p23219f9c9b;enable sword none;enable blade yuanyuewandao;enable club fumogun;enable staff fumozhang;enable whip none;enable parry p23219f9c9b;
+  - name: 黑白大帝
+    server: ws://120.77.213.218:25632
+    token: >-
+      5df6c5a3d5ce4a378c3c46758eaddb98
+      HcGoyxMrheQ5xXuGKFKQ7RGDm+UgeH7WYs5CSWKbn9dBuJ43T3tQsIOoYxLbIvizd0zFotNrHv15k9mEMkCGZQ==
+      69v255f1eb4
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr chanzong/shanmen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: null
+      yaoshen: null
+  - name: 辰青璇
+    server: ws://120.77.213.218:25632
+    token: >-
+      5df6c5a3d5ce4a378c3c46758eaddb98
+      HcGoyxMrheQ5xXuGKFKQ7RGDm+UgeH7WYs5CSWKbn9dBuJ43T3tQsIOoYxLbIvizd0zFotNrHv15k9mEMkCGZQ==
+      b23438bffc3
+    canlogin: true
+    redboss: false
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr zsd/damen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
+  - name: 红妆
+    server: ws://120.77.213.218:25632
+    token: >-
+      5df6c5a3d5ce4a378c3c46758eaddb98
+      HcGoyxMrheQ5xXuGKFKQ7RGDm+UgeH7WYs5CSWKbn9dBuJ43T3tQsIOoYxLbIvizd0zFotNrHv15k9mEMkCGZQ==
+      dhe9566853a
+    canlogin: true
+    redboss: false
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr chanzong/shanmen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: null
+      yaoshen: null
+  - name: 華無闕
+    server: ws://120.77.213.218:25632
+    token: >-
+      1fd4cbd6474340ad88b8971670f78c84
+      nNqqI4VAoVv6Ixnvrti/MyP8wBUjEJok4TPB5BZaEadlNZu2qJFjMokMKON1sgGWMchdpYbnImGlYWkgHyXpzw==
+      76pd82bfb59
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr zsd/damen 1
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: null
+      yaoshen: null
+    loginCommand: enable throwing mantianhuayu2;enable unarmed liumaishenjian;enable force jiuyinshengong;enable dodge juemengun;enable sword xuantiejianfa;enable blade xuedao;enable club baguagun;enable staff shedaoqigong;enable whip qiufengfuchen;enable parry yihuajiemu;eq aewgaa5dfd4;eq s9fsb04d86f;eq w71mab38b7d;eq ux28b1cce5e;eq at3rb716e73;eq p1micc1b9a6;eq 846ja941a58;eq 7s46a9be44b;eq uljjb9e06c3;eq ees1c447feb;eq qj62b67a052;
+    logoutCommand: pty 日常结束
+  - name: 辰洛
+    server: ws://120.77.213.218:25632
+    token: >-
+      054a7c355c8f4000ae5361737cdbd503
+      brt62C5FUOUSzStdnZOe9839z1ofkJI31yz+iSZw4jFf/GsPeXTaEudf0sCJ9axfmiZZ7lEV55+zlfmXyWMhtw==
+      f14b562e68e
+    canlogin: true
+    redboss: false
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr zsd/damen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
+  - name: 石竹绣罗衣
+    server: ws://120.77.213.218:25632
+    token: >-
+      52e377306e9a40f19ea2c6478bf43f84
+      pWNyl4LtU+geGdKvCk0Bz+JH2mEhRMNJAdja2+ylWJvbxyX+VDSCobsCAfGQcmpFxU8sj8u/4ZJdEEcZequSNQ==
+      1wn1b599013
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 流水折江心
+    server: ws://120.77.213.218:25632
+    token: >-
+      52e377306e9a40f19ea2c6478bf43f84
+      pWNyl4LtU+geGdKvCk0Bz+JH2mEhRMNJAdja2+ylWJvbxyX+VDSCobsCAfGQcmpFxU8sj8u/4ZJdEEcZequSNQ==
+      9gwib59916f
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 玉楼巢翡翠
+    server: ws://120.77.213.218:25632
+    token: >-
+      52e377306e9a40f19ea2c6478bf43f84
+      pWNyl4LtU+geGdKvCk0Bz+JH2mEhRMNJAdja2+ylWJvbxyX+VDSCobsCAfGQcmpFxU8sj8u/4ZJdEEcZequSNQ==
+      9ql4b59904b
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 虞寄数辞官
+    server: ws://120.77.213.218:25632
+    token: >-
+      52e377306e9a40f19ea2c6478bf43f84
+      pWNyl4LtU+geGdKvCk0Bz+JH2mEhRMNJAdja2+ylWJvbxyX+VDSCobsCAfGQcmpFxU8sj8u/4ZJdEEcZequSNQ==
+      do1sb599136
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 不自识疏鄙
+    server: ws://120.77.213.218:25632
+    token: >-
+      52e377306e9a40f19ea2c6478bf43f84
+      pWNyl4LtU+geGdKvCk0Bz+JH2mEhRMNJAdja2+ylWJvbxyX+VDSCobsCAfGQcmpFxU8sj8u/4ZJdEEcZequSNQ==
+      hajxb5991f6
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 寒月摇清波
+    server: ws://120.77.213.218:25632
+    token: >-
+      52e377306e9a40f19ea2c6478bf43f84
+      pWNyl4LtU+geGdKvCk0Bz+JH2mEhRMNJAdja2+ylWJvbxyX+VDSCobsCAfGQcmpFxU8sj8u/4ZJdEEcZequSNQ==
+      in99b59907a
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 唯留一湖水
+    server: ws://120.77.213.218:25632
+    token: >-
+      52e377306e9a40f19ea2c6478bf43f84
+      pWNyl4LtU+geGdKvCk0Bz+JH2mEhRMNJAdja2+ylWJvbxyX+VDSCobsCAfGQcmpFxU8sj8u/4ZJdEEcZequSNQ==
+      j5dzb5990c0
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 觅使嵩云暮
+    server: ws://120.77.213.218:25632
+    token: >-
+      52e377306e9a40f19ea2c6478bf43f84
+      pWNyl4LtU+geGdKvCk0Bz+JH2mEhRMNJAdja2+ylWJvbxyX+VDSCobsCAfGQcmpFxU8sj8u/4ZJdEEcZequSNQ==
+      ukp8b5991b9
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 风急响疑雷
+    server: ws://120.77.213.218:25632
+    token: >-
+      52e377306e9a40f19ea2c6478bf43f84
+      pWNyl4LtU+geGdKvCk0Bz+JH2mEhRMNJAdja2+ylWJvbxyX+VDSCobsCAfGQcmpFxU8sj8u/4ZJdEEcZequSNQ==
+      w5oub598fbd
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 黔首遂难裁
+    server: ws://120.77.213.218:25632
+    token: >-
+      52e377306e9a40f19ea2c6478bf43f84
+      pWNyl4LtU+geGdKvCk0Bz+JH2mEhRMNJAdja2+ylWJvbxyX+VDSCobsCAfGQcmpFxU8sj8u/4ZJdEEcZequSNQ==
+      zbg8b5990fe
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 随风三六
+    server: ws://120.77.213.218:25631
+    token: >-
+      97c5d237fd8049aab2f7269d27b23875
+      5+IUALk3fAASs241TRfc5ey38o7K2Xe76nkRMoixCn3KYCrEQN63vyaInM0PwtKTYHdN9/xM3a1hwjIYvG/4jg==
+      6fnj8f19ec1
+    canlogin: true
+    redboss: false
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr zsd/damen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
+  - name: 烟水寒
+    server: ws://120.77.213.218:25631
+    token: >-
+      7caecf1fddeb48d1a9556ee1992ec1cd
+      sobFSEhxw/hIEEJ17fWyMKjBoSUf7TQcLGMShbiD08qmg3vhblLs8KjFLbV2sshuMdpTzy1hcXyQ+slk4PGb3g==
+      d1hr5ab3b44
+    canlogin: true
+    redboss: true
+    leitai: false
+    dungeons:
+      first: false
+      second: true
+      third: cr zsd/damen 1
+      fourth: false
+    war:
+      family: false
+      gang: false
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: false
+      yaoshen: null
+  - name: 爱吃小白白
+    server: ws://120.77.213.218:25631
+    token: >-
+      b66dcd4f7d21439ead861aae0247fadc
+      QgAmueiOIaWiovx9ZIkkMe7ExOovW/iPeKcQmVEwRGsOlVOKzF6NGNRV0avTgEDFHQUje5Y4FDRabIrFPrDsaA==
+      06s94b79ce4
+    canlogin: true
+    redboss: true
+    leitai: false
+    dungeons:
+      first: true
+      second: true
+      third: saodang muyuan
+      fourth: false
+    war:
+      family: false
+      gang: true
+      leader: true
+    week:
+      xiangyang: true
+      yunbiao: true
+      tazhu: true
+      yaoshen: true
+  - name: 鹊巢鸠居
+    server: ws://120.77.213.218:25631
+    token: >-
+      000f0ea15ad84f58bfc19d00b07fcfd2
+      0KNnSwBoxiPWQ3EHGr5PiThL2Dfny+adbohCqrbiIfF6t7kug/kTu7l7KpIxlmdWZQHpmPB5YtGCMeOt9dVOaQ==
+      a6np685ccc2
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 达观知命
+    server: ws://120.77.213.218:25631
+    token: >-
+      000f0ea15ad84f58bfc19d00b07fcfd2
+      0KNnSwBoxiPWQ3EHGr5PiThL2Dfny+adbohCqrbiIfF6t7kug/kTu7l7KpIxlmdWZQHpmPB5YtGCMeOt9dVOaQ==
+      c96s685cfad
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 山吟泽唱
+    server: ws://120.77.213.218:25631
+    token: >-
+      000f0ea15ad84f58bfc19d00b07fcfd2
+      0KNnSwBoxiPWQ3EHGr5PiThL2Dfny+adbohCqrbiIfF6t7kug/kTu7l7KpIxlmdWZQHpmPB5YtGCMeOt9dVOaQ==
+      d0oq685cd1d
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 大庭广众
+    server: ws://120.77.213.218:25631
+    token: >-
+      000f0ea15ad84f58bfc19d00b07fcfd2
+      0KNnSwBoxiPWQ3EHGr5PiThL2Dfny+adbohCqrbiIfF6t7kug/kTu7l7KpIxlmdWZQHpmPB5YtGCMeOt9dVOaQ==
+      ga3x685cf53
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 寸阴是惜
+    server: ws://120.77.213.218:25631
+    token: >-
+      000f0ea15ad84f58bfc19d00b07fcfd2
+      0KNnSwBoxiPWQ3EHGr5PiThL2Dfny+adbohCqrbiIfF6t7kug/kTu7l7KpIxlmdWZQHpmPB5YtGCMeOt9dVOaQ==
+      gl9x685cddc
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 翩若惊鸿
+    server: ws://120.77.213.218:25631
+    token: >-
+      000f0ea15ad84f58bfc19d00b07fcfd2
+      0KNnSwBoxiPWQ3EHGr5PiThL2Dfny+adbohCqrbiIfF6t7kug/kTu7l7KpIxlmdWZQHpmPB5YtGCMeOt9dVOaQ==
+      ienc685ce72
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 杀人如蒿
+    server: ws://120.77.213.218:25631
+    token: >-
+      000f0ea15ad84f58bfc19d00b07fcfd2
+      0KNnSwBoxiPWQ3EHGr5PiThL2Dfny+adbohCqrbiIfF6t7kug/kTu7l7KpIxlmdWZQHpmPB5YtGCMeOt9dVOaQ==
+      nm0w685ce3b
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 遵养待时
+    server: ws://120.77.213.218:25631
+    token: >-
+      000f0ea15ad84f58bfc19d00b07fcfd2
+      0KNnSwBoxiPWQ3EHGr5PiThL2Dfny+adbohCqrbiIfF6t7kug/kTu7l7KpIxlmdWZQHpmPB5YtGCMeOt9dVOaQ==
+      oqsh685cef4
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null
+  - name: 洞鉴古今
+    server: ws://120.77.213.218:25631
+    token: >-
+      000f0ea15ad84f58bfc19d00b07fcfd2
+      0KNnSwBoxiPWQ3EHGr5PiThL2Dfny+adbohCqrbiIfF6t7kug/kTu7l7KpIxlmdWZQHpmPB5YtGCMeOt9dVOaQ==
+      w786685cd81
+    canlogin: true
+    redboss: null
+    leitai: false
+    dungeons:
+      first: false
+      second: false
+      third: cr yz/lw/shangu 0
+      fourth: true
+    war:
+      family: false
+      gang: true
+      leader: false
+    week:
+      xiangyang: true
+      yunbiao: false
+      tazhu: null
+      yaoshen: null

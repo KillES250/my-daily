@@ -1,0 +1,28 @@
+{
+  "name": "wsmud6",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "stop": "node server/stop-server.js",
+    "runall": "node mudsrc/run/all.js",
+    "killall": " node mudsrc/run/killall.js",
+    "rundaily": "node mudsrc/run/_daily.js",
+    "runwar": "node mudsrc/run/_war.js",
+    "runweek": "node mudsrc/run/_week.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "chalk": "^2.4.1",
+    "dayjs": "^1.11.13",
+    "express": "^4.21.0",
+    "js-yaml": "^4.1.0",
+    "json5": "^2.2.3",
+    "node-schedule": "^2.1.1",
+    "ws": "^8.18.0"
+  }
+}
