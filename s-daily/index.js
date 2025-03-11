@@ -24,14 +24,14 @@ function loginQueue(configs, userConfig) {
 
 if (options.run) {
   const configs = yaml.load(fs.readFileSync('config.yaml'));
-  configs.splice(0, 20).forEach((userConfig) => {
+  configs.splice(0, 10).forEach((userConfig) => {
     loginQueue(configs, userConfig);
   });
 }
 
 schedule.scheduleJob(options.time ? options.time : '5 5 5,17 * * *', () => {
   const configs = yaml.load(fs.readFileSync('config.yaml'));
-  configs.splice(0, 20).forEach((userConfig) => {
+  configs.splice(0, 10).forEach((userConfig) => {
     loginQueue(configs, userConfig);
   });
 });
