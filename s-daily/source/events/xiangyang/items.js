@@ -5,7 +5,7 @@ module.exports = function (data) {
     }
 
     if (item.name === this.gameInfo.xiangyang.npc) {
-      this.cmd.send('tm sb');
+      this.cmd.send('task');
       return;
     }
   }
