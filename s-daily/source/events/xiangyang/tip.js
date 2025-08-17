@@ -13,7 +13,7 @@ module.exports = function (tip) {
   }
 
   if (tip.includes('再次进入襄阳城') || tip.includes('你还是不要去添乱了')) {
-    this.cmd.send('jh fam 0 start;go south;go east;sell all;wakuang');
+    this.cmd.send(`transmoney`);
   }
 
   if (tip.includes('你挥着铁镐开始认真挖矿')) {
